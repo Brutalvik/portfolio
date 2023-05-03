@@ -1,60 +1,42 @@
-import { FC } from "react";
+import { FC, lazy } from "react";
 import styles from "./Header.module.css";
-
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import { toggleHamburger, toggleTheme } from "app/reducers/theme";
-import { handleToggle } from "features/functions";
 import { Squash as Hamburger } from "hamburger-react";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerOverlay,
-  DrawerContent,
-} from "@chakra-ui/react";
+
+const DrawerItem = lazy(() => import("UI/Drawer/DrawerItem"));
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
   const { darkMode, hamburgerIsOpen } = useAppSelector((state) => state.theme);
-  const toggleDrawer = () => handleToggle(dispatch, toggleHamburger);
+  const toggleThemeIcon = () => {
+    import("features/functions").then((module) => {
+      module.handleToggle(dispatch, toggleTheme);
+    });
+  };
 
   return (
     <div className={styles.container}>
-      <div className={styles.menu}>
-        <Hamburger onToggle={toggleDrawer} toggled={hamburgerIsOpen} />
+      <div className={hamburgerIsOpen ? styles.menudark : styles.menu}>
+        <Hamburger
+          onToggle={() => {
+            import("features/functions").then((module) => {
+              module.handleToggle(dispatch, toggleHamburger);
+            });
+          }}
+          toggled={hamburgerIsOpen}
+        />
       </div>
       <div className={styles.theme}>
         {darkMode ? (
-          <BsMoonFill onClick={() => handleToggle(dispatch, toggleTheme)} />
+          <BsMoonFill onClick={toggleThemeIcon} />
         ) : (
-          <BsSunFill onClick={() => handleToggle(dispatch, toggleTheme)} />
+          <BsSunFill onClick={toggleThemeIcon} />
         )}
       </div>
       <div className={styles.drawer}>
-        <Drawer
-          isOpen={hamburgerIsOpen}
-          placement="left"
-          onClose={toggleDrawer}
-          size="xs"
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerBody>
-              <div className={styles.menuItem}>
-                <p>Home</p>
-                <p>About</p>
-                <p>Skills</p>
-                <p>Portfolio</p>
-                <p>Contact</p>
-              </div>
-            </DrawerBody>
-
-            <DrawerFooter textAlign="center">
-              Copyright 2023 @Vikram Kumar
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
+        <DrawerItem />
       </div>
     </div>
   );
