@@ -1,0 +1,17 @@
+@import url("../../App.module.css");
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(300px, 2fr);
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  min-height: 7vh;
+}
+
+.theme {
+  justify-self: end;
+  font-size: 16px;
+  margin: 0px 10px 0px 0px;
+  cursor: pointer;
+}

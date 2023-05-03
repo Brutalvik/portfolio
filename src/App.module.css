@@ -1,4 +1,22 @@
-.main {
+:root {
+  --dark-background: #0000000a;
+  --dark-text: #4fd1c5;
+  --light-background: #f7fafc;
+  --light-text: #38b2ac;
+}
+
+.light,
+.dark {
   width: 100%;
   height: 100vh;
+}
+
+.light {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+.dark {
+  background-color: var(--light-background);
+  color: var(--light-text);
 }
