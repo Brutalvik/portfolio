@@ -9,12 +9,13 @@ import {
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { toggleHamburger } from "app/reducers/theme";
 import styles from "./DrawerItem.module.css";
+import { Spinner } from "@chakra-ui/react";
 
 const DrawerItem: FC = () => {
   const dispatch = useAppDispatch();
   const { hamburgerIsOpen } = useAppSelector((state) => state.theme);
   return (
-    <Suspense fallback={<p>Loading....</p>}>
+    <Suspense fallback={<Spinner />}>
       <Drawer
         isOpen={hamburgerIsOpen}
         placement="left"
