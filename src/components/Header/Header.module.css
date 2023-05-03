@@ -3,15 +3,22 @@
 .container {
   display: grid;
   grid-template-columns: minmax(300px, 2fr);
-  border: 1px solid black;
   justify-content: center;
   align-items: center;
-  min-height: 7vh;
+}
+
+.menu {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0px 0px 0px 10px;
+  cursor: pointer;
+  width: fit-content;
 }
 
 .theme {
+  grid-column: 2;
   justify-self: end;
-  font-size: 16px;
-  margin: 0px 10px 0px 0px;
   cursor: pointer;
+  margin: 10px 10px 0px 0px;
+  font-size: 30px;
 }

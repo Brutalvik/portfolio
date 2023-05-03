@@ -1,8 +1,8 @@
 :root {
-  --dark-background: #0000000a;
+  --dark-background: #171923;
   --dark-text: #4fd1c5;
   --light-background: #f7fafc;
-  --light-text: #38b2ac;
+  --light-text: #2c7a7b;
 }
 
 .light,
@@ -11,12 +11,12 @@
   height: 100vh;
 }
 
-.light {
+.dark {
   background-color: var(--dark-background);
   color: var(--dark-text);
 }
 
-.dark {
+.light {
   background-color: var(--light-background);
   color: var(--light-text);
 }

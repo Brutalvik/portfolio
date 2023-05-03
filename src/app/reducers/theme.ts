@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   darkMode: true,
+  hamburgerIsOpen: false,
 };
 
 const theme = createSlice({
@@ -11,9 +12,12 @@ const theme = createSlice({
     toggleTheme: (state) => {
       state.darkMode = !state.darkMode;
     },
+    toggleHamburger: (state) => {
+      state.hamburgerIsOpen = !state.hamburgerIsOpen;
+    },
   },
 });
 
-export const { toggleTheme } = theme.actions;
+export const { toggleTheme, toggleHamburger } = theme.actions;
 
 export default theme.reducer;
