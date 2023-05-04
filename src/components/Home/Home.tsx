@@ -5,8 +5,17 @@ import { useAppSelector } from "app/hooks";
 import ProfileImage from "assets/vik.png";
 import Name from "UI/Name/Name";
 import Frame from "UI/Frame/Frame";
+import Typing from "UI/Typing/Typing";
 
 const Home: FC = () => {
+  const sequenceData = [
+    "Frontend Developer",
+    1000,
+    "Backend Developer",
+    1000,
+    "Fullstack Developer",
+    1000,
+  ];
   const { darkMode } = useAppSelector((state) => state.theme);
 
   return (
@@ -28,7 +37,15 @@ const Home: FC = () => {
               : `${styles.rightColumn} ${styles.dark}`
           }
         >
-          <Name childName="Vikram Kumar" />
+          <div className={styles.content}>
+            <h1>I am</h1>
+            <Name childName="Vikram Kumar" />
+
+            <p>And I am a</p>
+            <div className={styles.typing}>
+              <Typing sequence={sequenceData} />
+            </div>
+          </div>
         </div>
       </div>
     </Suspense>

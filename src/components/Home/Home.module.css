@@ -21,6 +21,27 @@
 }
 
 .rightColumn {
-  margin: 5%;
-  justify-self: center;
+  display: grid;
+  place-items: center;
+}
+/* font-size: 25px;
+  font-family: "Roboto Condensed"; */
+
+.content {
+  display: grid;
+  grid-template-rows: minmax(1fr, auto);
+  font-family: "Roboto Condensed";
+  place-items: left;
+  margin: 10% 0% 0% 0%;
+}
+
+.content > h1,
+p {
+  font-size: 25px;
+}
+
+.typing {
+  font-size: 15px;
+  width: 100%;
+  margin: 5px 0px 0px 30px;
 }

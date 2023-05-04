@@ -6,3 +6,7 @@ export interface NameInterface {
 export interface FrameInterface {
   child?: any;
 }
+
+export interface TypingInterface {
+  sequence?: any;
+}
