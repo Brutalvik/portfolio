@@ -1,0 +1,32 @@
+.svgWrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width: 320px;
+}
+
+.shape {
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: #17cec2;
+  border-bottom: 5px solid #000000;
+  transition: stroke-width 0.5s, stroke-dashoffset 0.5s, stroke-dasharray 0.5s;
+}
+
+.text {
+  font-family: "Bruno Ace SC";
+  font-size: 25px;
+  line-height: 32px;
+  letter-spacing: 3px;
+  color: #17cec2 !important;
+}
+
+.svgWrapper:hover .shape {
+  stroke-width: 4px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 760;
+  cursor: pointer;
+}

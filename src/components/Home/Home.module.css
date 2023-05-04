@@ -1,0 +1,30 @@
+@import url("../../App.module.css");
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(1fr, 2fr);
+  margin: 10px;
+}
+
+.light {
+  color: var(--dark-background);
+}
+
+.dark {
+  color: var(--light-background);
+}
+
+.leftColumn {
+  grid-column: 1;
+  justify-self: center;
+}
+
+.leftColumn > img {
+  height: 500px;
+  margin: 5em 0em 0em 0em;
+}
+
+.rightColumn {
+  grid-column: 2;
+  justify-self: center;
+}

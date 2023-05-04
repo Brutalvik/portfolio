@@ -5,16 +5,17 @@ import { store } from "./app/store";
 import App from "./App";
 import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter } from "react-router-dom";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ChakraProvider>
+  <Provider store={store}>
+    <ChakraProvider>
+      <BrowserRouter>
         <App />
-      </ChakraProvider>
-    </Provider>
-  </React.StrictMode>
+      </BrowserRouter>
+    </ChakraProvider>
+  </Provider>
 );
