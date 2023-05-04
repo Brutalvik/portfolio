@@ -1,3 +1,6 @@
+@import url("../../App.module.css");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Roboto+Condensed&display=swap");
+
 .svgWrapper {
   position: relative;
   top: 50%;
@@ -6,25 +9,43 @@
   width: 320px;
 }
 
-.shape {
+.shapeLight,
+.shapeDark {
   stroke-dasharray: 140 540;
   stroke-dashoffset: -474;
   stroke-width: 8px;
   fill: transparent;
-  stroke: #17cec2;
-  border-bottom: 5px solid #000000;
-  transition: stroke-width 0.5s, stroke-dashoffset 0.5s, stroke-dasharray 0.5s;
+  border-bottom: 1px solid black;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
 }
 
-.text {
-  font-family: "Bruno Ace SC";
+.shapeDark {
+  stroke: var(--dark-text);
+}
+
+.shapeLight {
+  stroke: var(--light-text);
+}
+
+.textLight,
+.textDark {
+  font-family: "Roboto Condensed";
   font-size: 25px;
   line-height: 32px;
-  letter-spacing: 3px;
-  color: #17cec2 !important;
+  letter-spacing: 8px;
 }
 
-.svgWrapper:hover .shape {
+/* .textLight {
+  color: var(--dark-background);
+}
+
+.textDark {
+  color: var(--light-background);
+} */
+
+.svgWrapper:hover,
+.shapeLight:hover,
+.shapeDark:hover {
   stroke-width: 4px;
   stroke-dashoffset: 0;
   stroke-dasharray: 760;

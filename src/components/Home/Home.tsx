@@ -19,7 +19,6 @@ const Home: FC = () => {
               : `${styles.leftColumn} ${styles.dark}`
           }
         >
-          <Name childName="Vikram Kumar" />
           <Frame child={<img src={ProfileImage} alt="profile" />} />
         </div>
         <div
@@ -29,7 +28,7 @@ const Home: FC = () => {
               : `${styles.rightColumn} ${styles.dark}`
           }
         >
-          right
+          <Name childName="Vikram Kumar" />
         </div>
       </div>
     </Suspense>
