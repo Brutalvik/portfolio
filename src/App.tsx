@@ -1,7 +1,7 @@
 import { FC, Suspense, lazy } from "react";
 import styles from "./App.module.css";
 import { useAppSelector } from "app/hooks";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 //Components
 import Header from "components/Header/Header";
@@ -16,7 +16,7 @@ const App: FC = () => {
   const theme = darkMode ? styles.light : styles.dark;
   return (
     <div className={theme}>
-      <Suspense fallback={<SpinnerItem size="xl" />}>
+      <Suspense fallback={<SpinnerItem />}>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

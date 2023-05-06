@@ -28,7 +28,7 @@ const Home: FC = () => {
   };
 
   return (
-    <Suspense fallback={<SpinnerItem size="xl" />}>
+    <Suspense fallback={<SpinnerItem />}>
       <div className={styles.container}>
         <div
           className={

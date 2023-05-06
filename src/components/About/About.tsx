@@ -4,8 +4,9 @@ import Register from "Forms/Register/Register";
 
 const About: FC = () => {
   return (
-    <Suspense fallback={<SpinnerItem size="xl" />}>
+    <Suspense fallback={<SpinnerItem />}>
       <Register />
+      {/* <SpinnerItem /> */}
     </Suspense>
   );
 };

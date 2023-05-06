@@ -27,7 +27,7 @@ const DrawerItem: FC = () => {
     navigate(page);
   };
   return (
-    <Suspense fallback={<SpinnerItem size="xl" />}>
+    <Suspense fallback={<SpinnerItem />}>
       <Drawer
         isOpen={hamburgerIsOpen}
         placement="left"
