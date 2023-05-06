@@ -7,17 +7,16 @@ import {
 } from "app/reducers/file";
 import { FileDownloadParams } from "features/interfaces";
 
-// const URI = `${process.env.REACT_APP_URI}${process.env.REACT_APP_FILE_DOWNLOAD_URI}`;
+const URI = `${process.env.REACT_APP_URI}${process.env.REACT_APP_FILE_DOWNLOAD_URI}`;
 
 export const fileDownload = createAsyncThunk(
   "download",
   async ({ id, dispatch }: FileDownloadParams) => {
     try {
       dispatch(fileDownloadStatus(true));
-      const { data } = await axios.get(
-        "http://localhost:5000/api/files/download?id=6452192acfd32f012e89e237",
-        { responseType: "arraybuffer" }
-      );
+      const { data } = await axios.get(`${URI}${id}`, {
+        responseType: "arraybuffer",
+      });
       const url = URL.createObjectURL(
         new Blob([data], { type: "application/pdf" })
       );

@@ -22,18 +22,15 @@ const Home: FC = () => {
     1000,
   ];
   const { darkMode } = useAppSelector((state) => state.theme);
-  const { file, isDownloading, error, message } = useAppSelector(
-    (state: any) => state.file
-  );
+  const { isDownloading } = useAppSelector((state: any) => state.file);
   // useAppSelector((state: any) => console.log(state.file));
 
   const handleFileDownload = async () => {
     const response = await dispatch(fileDownload({ id, dispatch }));
-    console.log("response", response);
-    if (response.type === "download/fulfilled" && file) {
+    console.log(response);
+    if (response.type === "download/fulfilled") {
       const link = document.createElement("a");
-      console.log("link", link);
-      link.href = file;
+      link.href = response.payload as string;
       link.download = "CV-Vikram Kumar.pdf";
       link.click();
     }
