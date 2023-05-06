@@ -19,6 +19,7 @@ export interface FileDownloadParams {
 }
 
 export interface CustomInputInterface {
+  value?: string;
   formLabel?: string;
   tooltipLabel?: string;
   type?: string;
@@ -26,4 +27,8 @@ export interface CustomInputInterface {
   variant?: string;
   id?: string;
   errorMessage?: string;
+  onChange?: any;
+  onBlur?: any;
+  isInvalid?: any;
+  touched?: boolean;
 }

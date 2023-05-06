@@ -6,9 +6,6 @@ import {
   FormErrorMessage,
   Input,
   InputGroup,
-  RadioGroup,
-  HStack,
-  Radio,
   InputRightElement,
   Tooltip,
   Button,
@@ -16,24 +13,27 @@ import {
 import { useFormik } from "formik";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomInput from "UI/CustomInput/CustomInput";
+import { registrationFormSchema } from "features/registrationValidation";
 
 const Register: FC = () => {
   const [visible, setVisible] = useState(false);
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+    useFormik({
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+      },
+      validationSchema: registrationFormSchema,
+      onSubmit: (values: any) => {
+        console.log(values);
+      },
+    });
 
   return (
     <div className={styles.container}>
-      <FormControl>
+      <form onSubmit={handleSubmit}>
         <CustomInput
           formLabel="First Name"
           tooltipLabel="Enter your first name."
@@ -41,6 +41,12 @@ const Register: FC = () => {
           size="md"
           variant="flushed"
           id="firstName"
+          value={values.firstName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          isInvalid={errors.firstName && touched.firstName}
+          touched={touched.firstName}
+          errorMessage={errors.firstName}
         />
         <CustomInput
           formLabel="Last Name"
@@ -49,6 +55,12 @@ const Register: FC = () => {
           size="md"
           variant="flushed"
           id="lastName"
+          value={values.lastName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          isInvalid={errors.lastName && touched.lastName}
+          touched={touched.lastName}
+          errorMessage={errors.lastName}
         />
         <CustomInput
           formLabel="Email"
@@ -57,8 +69,17 @@ const Register: FC = () => {
           size="md"
           variant="flushed"
           id="email"
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          isInvalid={errors.email && touched.email}
+          touched={touched.email}
+          errorMessage={errors.email}
         />
-        <div className={styles.item}>
+        <FormControl
+          className={styles.item}
+          isInvalid={(errors.password && touched.password) || false}
+        >
           <FormLabel>Password</FormLabel>
           <Tooltip label="Create a password with atleast 4 characters.">
             <InputGroup size="md">
@@ -67,7 +88,11 @@ const Register: FC = () => {
                 size="md"
                 variant="flushed"
                 id="password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
+
               <InputRightElement width="3rem">
                 {visible ? (
                   <AiOutlineEye onClick={() => setVisible(false)} />
@@ -77,17 +102,10 @@ const Register: FC = () => {
               </InputRightElement>
             </InputGroup>
           </Tooltip>
-          <FormErrorMessage>We'll never share your email.</FormErrorMessage>
-        </div>
-        <div className={styles.item}>
-          <RadioGroup defaultValue="Male">
-            <HStack spacing="24px">
-              <Radio value="Male">Male</Radio>
-              <Radio value="Female">Female</Radio>
-              <Radio value="Other">Other</Radio>
-            </HStack>
-          </RadioGroup>
-        </div>
+          {touched.password && (
+            <FormErrorMessage>{errors.password}</FormErrorMessage>
+          )}
+        </FormControl>
         <div className={styles.btn}>
           <Button
             colorScheme="teal"
@@ -99,7 +117,7 @@ const Register: FC = () => {
             Register
           </Button>
         </div>
-      </FormControl>
+      </form>
     </div>
   );
 };

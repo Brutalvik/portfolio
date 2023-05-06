@@ -1,9 +1,16 @@
 import { FC } from "react";
 import styles from "./CustomInput.module.css";
 import { CustomInputInterface } from "features/interfaces";
-import { FormLabel, FormErrorMessage, Input, Tooltip } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Input,
+  Tooltip,
+} from "@chakra-ui/react";
 
 const CustomInput: FC<CustomInputInterface> = ({
+  value,
   formLabel,
   tooltipLabel,
   type,
@@ -11,15 +18,27 @@ const CustomInput: FC<CustomInputInterface> = ({
   variant,
   id,
   errorMessage,
+  onChange,
+  onBlur,
+  isInvalid,
+  touched,
 }) => {
   return (
-    <div className={styles.item}>
+    <FormControl isInvalid={isInvalid} className={styles.item}>
       <FormLabel>{formLabel}</FormLabel>
       <Tooltip label={tooltipLabel}>
-        <Input type={type} size={size} variant={variant} id={id} />
+        <Input
+          type={type}
+          size={size}
+          variant={variant}
+          id={id}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
       </Tooltip>
-      <FormErrorMessage>{errorMessage}</FormErrorMessage>
-    </div>
+      {touched && <FormErrorMessage>{errorMessage}</FormErrorMessage>}
+    </FormControl>
   );
 };
 
