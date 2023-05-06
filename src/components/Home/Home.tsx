@@ -47,10 +47,7 @@ const Home: FC = () => {
           }
         >
           <div className={styles.content}>
-            <h1>I am</h1>
             <Name childName="Vikram Kumar" />
-
-            <p>And I am a</p>
             <div className={styles.typing}>
               <Typing sequence={sequenceData} />
             </div>

@@ -1,8 +1,8 @@
 export const sequenceData = [
-  "Frontend Developer",
+  "FRONTEND DEVELOPER",
   1000,
-  "Backend Developer",
+  "BACKEND DEVELOPER",
   1000,
-  "Fullstack Developer",
+  "FULLSTACK DEVELOPER",
   1000,
 ];

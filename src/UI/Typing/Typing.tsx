@@ -1,6 +1,7 @@
 import { TypingInterface } from "features/interfaces";
 import { FC } from "react";
 import { TypeAnimation } from "react-type-animation";
+import styles from "./Typing.module.css";
 
 const Typing: FC<TypingInterface> = ({ sequence }) => {
   return (
@@ -9,8 +10,8 @@ const Typing: FC<TypingInterface> = ({ sequence }) => {
       wrapper="span"
       cursor={true}
       repeat={Infinity}
-      style={{ fontSize: "2em", display: "inline-block" }}
       deletionSpeed={1}
+      className={styles.typing}
     />
   );
 };
