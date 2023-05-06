@@ -6,7 +6,7 @@ import ProfileImage from "assets/vik.png";
 import Name from "UI/Name/Name";
 import Frame from "UI/Frame/Frame";
 import Typing from "UI/Typing/Typing";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { fileDownload } from "app/thunks/fileDownloadThunk";
 
 const id = process.env.REACT_APP_FILE_ID;
@@ -30,11 +30,9 @@ const Home: FC = () => {
   const handleFileDownload = async () => {
     const response = await dispatch(fileDownload({ id, dispatch }));
     console.log("response", response);
-    // // if (file) {
-
-    // // }
     if (response.type === "download/fulfilled" && file) {
       const link = document.createElement("a");
+      console.log("link", link);
       link.href = file;
       link.download = "CV-Vikram Kumar.pdf";
       link.click();
@@ -73,6 +71,7 @@ const Home: FC = () => {
             colorScheme="teal"
             variant="solid"
             onClick={handleFileDownload}
+            isLoading={isDownloading}
           >
             Download my CV
           </Button>
