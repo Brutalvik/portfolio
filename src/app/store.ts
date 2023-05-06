@@ -1,25 +1,6 @@
-import {
-  configureStore,
-  ThunkAction,
-  Action,
-  combineReducers,
-} from "@reduxjs/toolkit";
-import theme from "./reducers/theme";
-import file from "./reducers/file";
-import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore } from "redux-persist";
-
-const persistConfig = {
-  key: "root",
-  storage,
-};
-
-const rootReducers = combineReducers({
-  theme: theme,
-  file: file,
-});
-
-const persistedReducer = persistReducer(persistConfig, rootReducers);
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { persistStore } from "redux-persist";
+import { persistedReducer } from "./persistor";
 
 export const store = configureStore({
   reducer: persistedReducer,

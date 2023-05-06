@@ -8,26 +8,18 @@ import Frame from "UI/Frame/Frame";
 import Typing from "UI/Typing/Typing";
 import { Button } from "@chakra-ui/react";
 import { fileDownload } from "app/thunks/fileDownloadThunk";
+import { sequenceData } from "features/constants";
 
 const id = process.env.REACT_APP_FILE_ID;
 
 const Home: FC = () => {
   const dispatch = useAppDispatch();
-  const sequenceData = [
-    "Frontend Developer",
-    1000,
-    "Backend Developer",
-    1000,
-    "Fullstack Developer",
-    1000,
-  ];
   const { darkMode } = useAppSelector((state) => state.theme);
   const { isDownloading } = useAppSelector((state: any) => state.file);
   // useAppSelector((state: any) => console.log(state.file));
 
   const handleFileDownload = async () => {
     const response = await dispatch(fileDownload({ id, dispatch }));
-    console.log(response);
     if (response.type === "download/fulfilled") {
       const link = document.createElement("a");
       link.href = response.payload as string;
