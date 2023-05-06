@@ -1,13 +1,18 @@
-import { FC, Suspense } from "react";
+import { FC, Suspense, useEffect } from "react";
 import { Spinner } from "@chakra-ui/react";
 import styles from "./Home.module.css";
-import { useAppSelector } from "app/hooks";
+import { useAppSelector, useAppDispatch } from "app/hooks";
 import ProfileImage from "assets/vik.png";
 import Name from "UI/Name/Name";
 import Frame from "UI/Frame/Frame";
 import Typing from "UI/Typing/Typing";
+import { Button, ButtonGroup } from "@chakra-ui/react";
+import { fileDownload } from "app/thunks/fileDownloadThunk";
+
+const id = process.env.REACT_APP_FILE_ID;
 
 const Home: FC = () => {
+  const dispatch = useAppDispatch();
   const sequenceData = [
     "Frontend Developer",
     1000,
@@ -17,6 +22,24 @@ const Home: FC = () => {
     1000,
   ];
   const { darkMode } = useAppSelector((state) => state.theme);
+  const { file, isDownloading, error, message } = useAppSelector(
+    (state: any) => state.file
+  );
+  // useAppSelector((state: any) => console.log(state.file));
+
+  const handleFileDownload = async () => {
+    const response = await dispatch(fileDownload({ id, dispatch }));
+    console.log("response", response);
+    // // if (file) {
+
+    // // }
+    if (response.type === "download/fulfilled" && file) {
+      const link = document.createElement("a");
+      link.href = file;
+      link.download = "CV-Vikram Kumar.pdf";
+      link.click();
+    }
+  };
 
   return (
     <Suspense fallback={<Spinner />}>
@@ -46,6 +69,13 @@ const Home: FC = () => {
               <Typing sequence={sequenceData} />
             </div>
           </div>
+          <Button
+            colorScheme="teal"
+            variant="solid"
+            onClick={handleFileDownload}
+          >
+            Download my CV
+          </Button>
         </div>
       </div>
     </Suspense>
