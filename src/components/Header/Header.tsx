@@ -4,8 +4,7 @@ import { useAppDispatch, useAppSelector } from "app/hooks";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import { toggleHamburger, toggleTheme } from "app/reducers/theme";
 import { Squash as Hamburger } from "hamburger-react";
-
-const DrawerItem = lazy(() => import("UI/Drawer/DrawerItem"));
+import DrawerItem from "UI/Drawer/DrawerItem";
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();

@@ -5,9 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Components
 import Header from "components/Header/Header";
+import Home from "components/Home/Home";
 
 //Lazy Loading
-const Home = lazy(() => import("components/Home/Home"));
+const About = lazy(() => import("components/About/About"));
 
 const App: FC = () => {
   const darkMode = useAppSelector((state) => state.theme.darkMode);
@@ -17,6 +18,7 @@ const App: FC = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );

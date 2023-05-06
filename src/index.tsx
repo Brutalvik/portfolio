@@ -1,7 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import { store, persistor } from "./app/store";
+import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
 import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -12,10 +13,12 @@ const root = createRoot(container);
 
 root.render(
   <Provider store={store}>
-    <ChakraProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ChakraProvider>
+    <PersistGate loading={null} persistor={persistor}>
+      <ChakraProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
+    </PersistGate>
   </Provider>
 );

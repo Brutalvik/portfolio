@@ -1,13 +1,35 @@
-import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+  combineReducers,
+} from "@reduxjs/toolkit";
 import theme from "./reducers/theme";
 import file from "./reducers/file";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const rootReducers = combineReducers({
+  theme: theme,
+  file: file,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducers);
 
 export const store = configureStore({
-  reducer: {
-    theme: theme,
-    file: file,
-  },
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
+
+export const persistor = persistStore(store);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
