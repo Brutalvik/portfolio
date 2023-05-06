@@ -1,4 +1,4 @@
-import { FC, Suspense } from "react";
+import { FC, Suspense, startTransition } from "react";
 import {
   Drawer,
   DrawerBody,
@@ -9,13 +9,17 @@ import {
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { toggleHamburger } from "app/reducers/theme";
 import styles from "./DrawerItem.module.css";
-import { Spinner } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import SpinnerItem from "UI/Spinner/SpinnerItem";
 
 const DrawerItem: FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { hamburgerIsOpen } = useAppSelector((state) => state.theme);
+  const navigatePage = (page: string) => navigate(page);
+
   return (
-    <Suspense fallback={<Spinner />}>
+    <Suspense fallback={<SpinnerItem size="xl" />}>
       <Drawer
         isOpen={hamburgerIsOpen}
         placement="left"
@@ -30,11 +34,11 @@ const DrawerItem: FC = () => {
         <DrawerContent>
           <DrawerBody>
             <div className={styles.menuItem}>
-              <p>Home</p>
-              <p>About</p>
-              <p>Skills</p>
-              <p>Portfolio</p>
-              <p>Contact</p>
+              <p onClick={() => navigatePage("/")}>Home</p>
+              <p onClick={() => navigatePage("/about")}>About</p>
+              <p onClick={() => navigatePage("/skills")}>Skills</p>
+              <p onClick={() => navigatePage("/portfolio")}>Portfolio</p>
+              <p onClick={() => navigatePage("/contact")}>Contact</p>
             </div>
           </DrawerBody>
 

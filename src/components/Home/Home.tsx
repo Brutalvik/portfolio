@@ -1,5 +1,4 @@
-import { FC, Suspense, useEffect } from "react";
-import { Spinner } from "@chakra-ui/react";
+import { FC, Suspense } from "react";
 import styles from "./Home.module.css";
 import { useAppSelector, useAppDispatch } from "app/hooks";
 import ProfileImage from "assets/vik.png";
@@ -9,6 +8,7 @@ import Typing from "UI/Typing/Typing";
 import { Button } from "@chakra-ui/react";
 import { fileDownload } from "app/thunks/fileDownloadThunk";
 import { sequenceData } from "features/constants";
+import SpinnerItem from "UI/Spinner/SpinnerItem";
 
 const id = process.env.REACT_APP_FILE_ID;
 
@@ -16,7 +16,6 @@ const Home: FC = () => {
   const dispatch = useAppDispatch();
   const { darkMode } = useAppSelector((state) => state.theme);
   const { isDownloading } = useAppSelector((state: any) => state.file);
-  // useAppSelector((state: any) => console.log(state.file));
 
   const handleFileDownload = async () => {
     const response = await dispatch(fileDownload({ id, dispatch }));
@@ -29,7 +28,7 @@ const Home: FC = () => {
   };
 
   return (
-    <Suspense fallback={<Spinner />}>
+    <Suspense fallback={<SpinnerItem size="xl" />}>
       <div className={styles.container}>
         <div
           className={

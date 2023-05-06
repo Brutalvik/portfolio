@@ -1,4 +1,4 @@
-import { FC, lazy } from "react";
+import { FC, Suspense, lazy } from "react";
 import styles from "./App.module.css";
 import { useAppSelector } from "app/hooks";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //Components
 import Header from "components/Header/Header";
 import Home from "components/Home/Home";
+import SpinnerItem from "UI/Spinner/SpinnerItem";
 
 //Lazy Loading
 const About = lazy(() => import("components/About/About"));
@@ -15,11 +16,13 @@ const App: FC = () => {
   const theme = darkMode ? styles.light : styles.dark;
   return (
     <div className={theme}>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <Suspense fallback={<SpinnerItem size="xl" />}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 };
