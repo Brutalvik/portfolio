@@ -1,4 +1,4 @@
-import { FC, Suspense, startTransition } from "react";
+import { FC, Suspense } from "react";
 import {
   Drawer,
   DrawerBody,
@@ -16,18 +16,22 @@ const DrawerItem: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { hamburgerIsOpen } = useAppSelector((state) => state.theme);
-  const navigatePage = (page: string) => navigate(page);
 
+  const lazyImport = () =>
+    import("features/functions").then((module) => {
+      module.handleToggle(dispatch, toggleHamburger);
+    });
+
+  const navigatePage = async (page: any) => {
+    await lazyImport();
+    navigate(page);
+  };
   return (
     <Suspense fallback={<SpinnerItem size="xl" />}>
       <Drawer
         isOpen={hamburgerIsOpen}
         placement="left"
-        onClose={() => {
-          import("features/functions").then((module) => {
-            module.handleToggle(dispatch, toggleHamburger);
-          });
-        }}
+        onClose={lazyImport}
         size="xs"
       >
         <DrawerOverlay />
