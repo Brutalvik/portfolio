@@ -17,3 +17,13 @@ export interface FileDownloadParams {
   dispatch: Dispatch;
   id?: any;
 }
+
+export interface CustomInputInterface {
+  formLabel?: string;
+  tooltipLabel?: string;
+  type?: string;
+  size?: string;
+  variant?: string;
+  id?: string;
+  errorMessage?: string;
+}
