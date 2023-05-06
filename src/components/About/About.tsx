@@ -1,5 +1,4 @@
 import { FC, Suspense } from "react";
-import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
 import SpinnerItem from "UI/Spinner/SpinnerItem";
 import Register from "Forms/Register/Register";
 
