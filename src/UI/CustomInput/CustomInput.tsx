@@ -22,6 +22,7 @@ const CustomInput: FC<CustomInputInterface> = ({
   onBlur,
   isInvalid,
   touched,
+  name,
 }) => {
   return (
     <FormControl isInvalid={isInvalid} className={styles.item}>
@@ -35,6 +36,7 @@ const CustomInput: FC<CustomInputInterface> = ({
           value={value}
           onChange={onChange}
           onBlur={onBlur}
+          name={name}
         />
       </Tooltip>
       {touched && <FormErrorMessage>{errorMessage}</FormErrorMessage>}

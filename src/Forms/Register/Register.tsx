@@ -15,9 +15,12 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomInput from "UI/CustomInput/CustomInput";
 import { registrationFormSchema } from "features/registrationValidation";
 
+const onSubmit = (values: any) => {};
+
 const Register: FC = () => {
   const [visible, setVisible] = useState(false);
-  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+
+  const { values, handleBlur, handleSubmit, errors, touched, handleChange } =
     useFormik({
       initialValues: {
         firstName: "",
@@ -26,9 +29,7 @@ const Register: FC = () => {
         password: "",
       },
       validationSchema: registrationFormSchema,
-      onSubmit: (values: any) => {
-        console.log(values);
-      },
+      onSubmit,
     });
 
   return (
@@ -36,11 +37,11 @@ const Register: FC = () => {
       <form onSubmit={handleSubmit}>
         <CustomInput
           formLabel="First Name"
+          name="firstName"
           tooltipLabel="Enter your first name."
           type="text"
           size="md"
           variant="flushed"
-          id="firstName"
           value={values.firstName}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -50,11 +51,11 @@ const Register: FC = () => {
         />
         <CustomInput
           formLabel="Last Name"
+          name="lastName"
           tooltipLabel="Enter your Last name."
           type="text"
           size="md"
           variant="flushed"
-          id="lastName"
           value={values.lastName}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -64,11 +65,11 @@ const Register: FC = () => {
         />
         <CustomInput
           formLabel="Email"
+          name="email"
           tooltipLabel="Enter your email."
           type="text"
           size="md"
           variant="flushed"
-          id="email"
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -85,9 +86,9 @@ const Register: FC = () => {
             <InputGroup size="md">
               <Input
                 type={visible ? "text" : "password"}
+                name="password"
                 size="md"
                 variant="flushed"
-                id="password"
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -113,6 +114,7 @@ const Register: FC = () => {
             //   onClick={handleFileDownload}
             //   isLoading={isDownloading}
             size="lg"
+            type="submit"
           >
             Register
           </Button>

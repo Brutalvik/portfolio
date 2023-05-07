@@ -31,4 +31,5 @@ export interface CustomInputInterface {
   onBlur?: any;
   isInvalid?: any;
   touched?: boolean;
+  name?: string;
 }
