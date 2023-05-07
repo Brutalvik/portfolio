@@ -1,12 +1,11 @@
 import { FC, Suspense } from "react";
 import SpinnerItem from "UI/Spinner/SpinnerItem";
-import Register from "Forms/Register/Register";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 const About: FC = () => {
   return (
     <Suspense fallback={<SpinnerItem />}>
-      <Register />
-      {/* <SpinnerItem /> */}
+      <SpinnerItem />
     </Suspense>
   );
 };

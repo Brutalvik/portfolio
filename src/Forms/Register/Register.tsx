@@ -15,7 +15,9 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomInput from "UI/CustomInput/CustomInput";
 import { registrationFormSchema } from "features/registrationValidation";
 
-const onSubmit = (values: any) => {};
+const onSubmit = (values: any) => {
+  console.log(values);
+};
 
 const Register: FC = () => {
   const [visible, setVisible] = useState(false);

@@ -1,4 +1,4 @@
-import { FC, Suspense } from "react";
+import { FC, Suspense, useEffect } from "react";
 import styles from "./Home.module.css";
 import { useAppSelector, useAppDispatch } from "app/hooks";
 import ProfileImage from "assets/vik.png";
@@ -9,11 +9,13 @@ import { Button } from "@chakra-ui/react";
 import { fileDownload } from "app/thunks/fileDownloadThunk";
 import { sequenceData } from "features/constants";
 import SpinnerItem from "UI/Spinner/SpinnerItem";
+import { useToast } from "@chakra-ui/react";
 
 const id = process.env.REACT_APP_FILE_ID;
 
 const Home: FC = () => {
   const dispatch = useAppDispatch();
+  const toast = useToast();
   const { darkMode } = useAppSelector((state) => state.theme);
   const { isDownloading } = useAppSelector((state: any) => state.file);
 
@@ -24,6 +26,20 @@ const Home: FC = () => {
       link.href = response.payload as string;
       link.download = "CV-Vikram Kumar.pdf";
       link.click();
+      toast({
+        title: "File Downloaded",
+        description: link.download,
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    } else {
+      toast({
+        title: "Download Failed",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
     }
   };
 
