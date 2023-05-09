@@ -46,6 +46,6 @@
     stroke-dashoffset: calc(410px); /* strokeArray value for a radius of 85 */
   }
   to {
-    stroke-dashoffset: calc(500px * (100 - var(--percentage)) / 100);
+    stroke-dashoffset: calc(546.8px * (100 - var(--percentage)) / 100);
   }
 }
