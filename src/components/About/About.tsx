@@ -4,6 +4,7 @@ import styles from "./About.module.css";
 import { aboutMeDescription } from "features/constants";
 import { Divider, Stack, Text } from "@chakra-ui/react";
 import Name from "UI/Name/Name";
+import ProgressBar from "UI/ProgressBar/ProgressBar";
 
 const About: FC = () => {
   return (
@@ -16,6 +17,9 @@ const About: FC = () => {
           <Divider orientation="vertical" />
           <Text className={styles.text}>{aboutMeDescription}</Text>
         </Stack>
+      </div>
+      <div>
+        <ProgressBar width="45%" />
       </div>
     </Suspense>
   );

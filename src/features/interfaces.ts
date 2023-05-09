@@ -33,3 +33,7 @@ export interface CustomInputInterface {
   touched?: boolean;
   name?: string;
 }
+
+export interface ProgressBarInterface {
+  width: string;
+}

@@ -1,0 +1,41 @@
+@import url("../../App.module.css");
+
+.container {
+  height: 3vh;
+  width: 40%;
+}
+
+.progress {
+  width: 100%;
+  background-color: var(--dark-background);
+  border: 1px solid var(--dark-text);
+  border-radius: 20px;
+  height: 3vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.innerprogress {
+  background-color: var(--dark-text);
+  height: 1vh;
+  margin: 0px 10px 0px 10px;
+  border-radius: 20px;
+  animation-name: slide-in;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.innerprogress.stroke {
+  stroke: var(--dark-text) !important;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(var(width, 0));
+  }
+}
