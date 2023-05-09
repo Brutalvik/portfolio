@@ -1,0 +1,41 @@
+@import url("../../App.module.css");
+
+.container {
+  display: grid;
+  grid-template-rows: 2fr 10fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > label {
+  text-align: center;
+  font-size: 30px;
+}
+
+.circlebackground {
+  fill: none;
+  stroke: var(--dark-background);
+}
+
+.circleprogress {
+  fill: none;
+  stroke: var(--dark-text);
+  stroke-linecap: round;
+  stroke-dasharray: 546.8px; /* strokeArray value for a radius of 85 */
+  stroke-dashoffset: calc(546.8px * (100 - var(--percentage)) / 100);
+  animation: fill 1s ease-in-out forwards;
+}
+
+.text {
+  font-size: 2em;
+  color: var(--dark-text);
+}
+
+@keyframes fill {
+  from {
+    stroke-dashoffset: calc(546.8px); /* strokeArray value for a radius of 85 */
+  }
+  to {
+    stroke-dashoffset: calc(546.8px * (100 - var(--percentage)) / 100);
+  }
+}

@@ -5,6 +5,7 @@ import { aboutMeDescription } from "features/constants";
 import { Divider, Stack, Text } from "@chakra-ui/react";
 import Name from "UI/Name/Name";
 import ProgressBar from "UI/ProgressBar/ProgressBar";
+import CircularProgress from "UI/CircularProgress/CircularProgress";
 
 const About: FC = () => {
   return (
@@ -20,6 +21,8 @@ const About: FC = () => {
       </div>
       <div>
         <ProgressBar width="45%" />
+        <CircularProgress percentage={90} />
+        <CircularProgress percentage={50} />
       </div>
     </Suspense>
   );
