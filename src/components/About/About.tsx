@@ -15,24 +15,25 @@ const About: FC = () => {
           <Name childName="About Me" />
         </Stack>
         <Stack direction="row">
-          <Text className={styles.text}>{aboutMeDescription}</Text>
+          <text className={styles.text}>{aboutMeDescription}</text>
         </Stack>
-      </div>
-      <div className={styles.skillcontainer}>
-        <div>
-          <ProgressBar width="95%" title="HTML" />
-          <ProgressBar width="95%" title="Javascript" />
-          <ProgressBar width="90%" title="CSS" />
-          <ProgressBar width="95%" title="React" />
-          <ProgressBar width="95%" title="Node JS" />
-          <ProgressBar width="80%" title="Microservices" />
-          <ProgressBar width="90%" title="REST API" />
-          <ProgressBar width="75%" title="GraphQL" />
-        </div>
-        <div className={styles.circularskill}>
-          <CircularProgress percentage={90} title="Azure DevOps" />
-          <CircularProgress percentage={70} title="Cosmos DB" />
-          <CircularProgress percentage={75} title="No SQL" />
+        <div className={styles.skillcontainer}>
+          <div>
+            <ProgressBar width="95%" title="HTML/CSS" />
+            <ProgressBar width="95%" title="Javascript" />
+            <ProgressBar width="90%" title="Express JS" />
+            <ProgressBar width="95%" title="React" />
+            <ProgressBar width="95%" title="Node JS" />
+            <ProgressBar width="80%" title="Microservices" />
+            <ProgressBar width="90%" title="REST API" />
+            <ProgressBar width="75%" title="GraphQL" />
+          </div>
+          <div className={styles.circularskill}>
+            <CircularProgress percentage={90} title="Azure DevOps" />
+            <CircularProgress percentage={70} title="Cosmos DB" />
+            <CircularProgress percentage={75} title="No SQL" />
+            <CircularProgress percentage={75} title="No SQL" />
+          </div>
         </div>
       </div>
     </Suspense>

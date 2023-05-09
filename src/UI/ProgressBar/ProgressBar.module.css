@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 150px 250px 100px;
   grid-gap: 5px;
+  row-gap: 10px;
   user-select: none;
   cursor: pointer;
 }
