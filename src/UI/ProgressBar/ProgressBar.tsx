@@ -17,7 +17,7 @@ const ProgressBar: FC<ProgressBarInterface> = ({ width, title }) => {
           style={{ width: `${width}` }}
         ></div>
       </div>
-      <text className={styles.text}>{width}</text>
+      <span className={styles.text}>{width}</span>
     </div>
   );
 };

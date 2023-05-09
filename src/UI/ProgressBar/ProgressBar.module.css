@@ -4,7 +4,7 @@
   height: 5vh;
   width: 100%;
   display: grid;
-  grid-template-columns: 150px 250px 100px;
+  grid-template-columns: 150px 150px 50px;
   grid-gap: 5px;
   row-gap: 10px;
   user-select: none;
@@ -22,18 +22,18 @@
   background-color: var(--dark-background);
   border: 1px solid var(--dark-text);
   border-radius: 20px;
-  height: 3vh;
+  height: 2vh;
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 10px;
   overflow: hidden;
 }
 
 .innerprogress {
   background-color: var(--dark-text);
   height: 1vh;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 5px 0px 5px;
   border-radius: 20px;
   animation-name: slide-in;
   animation-duration: 1s;
@@ -47,7 +47,7 @@
 
 .text {
   font-size: 20px;
-  justify-self: left;
+  justify-self: right;
   font-weight: 500;
 }
 

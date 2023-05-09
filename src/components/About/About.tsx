@@ -15,7 +15,7 @@ const About: FC = () => {
           <Name childName="About Me" />
         </Stack>
         <Stack direction="row">
-          <text className={styles.text}>{aboutMeDescription}</text>
+          <Text className={styles.text}>{aboutMeDescription}</Text>
         </Stack>
         <div className={styles.skillcontainer}>
           <div>
