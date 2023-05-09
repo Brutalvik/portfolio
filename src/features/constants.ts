@@ -13,3 +13,21 @@ export const skills = [
   { type: "Java", level: 85 },
   { type: "Javascript", level: 75 },
 ];
+
+export const progressSkills = [
+  { id: 1, title: "HTML/CSS", width: "95%" },
+  { id: 2, title: "Javascript", width: "95%" },
+  { id: 3, title: "Express JS", width: "90%" },
+  { id: 4, title: "React", width: "95%" },
+  { id: 5, title: "Node JS", width: "95%" },
+  { id: 6, title: "Microservices", width: "80%" },
+  { id: 7, title: "REST API", width: "90%" },
+  { id: 8, title: "GraphQL", width: "75%" },
+];
+
+export const circularSkills = [
+  { id: 1, title: "Azure DevOps", percentage: 90 },
+  { id: 2, title: "Cosmos DB", percentage: 70 },
+  { id: 3, title: "No SQL", percentage: 75 },
+  { id: 4, title: "Kafka", percentage: 70 },
+];

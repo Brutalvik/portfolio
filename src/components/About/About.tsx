@@ -2,10 +2,15 @@ import { FC, Suspense } from "react";
 import SpinnerItem from "UI/Spinner/SpinnerItem";
 import styles from "./About.module.css";
 import { aboutMeDescription } from "features/constants";
-import { Divider, Stack, Text } from "@chakra-ui/react";
+import { Stack, Text } from "@chakra-ui/react";
 import Name from "UI/Name/Name";
 import ProgressBar from "UI/ProgressBar/ProgressBar";
 import CircularProgress from "UI/CircularProgress/CircularProgress";
+import { progressSkills, circularSkills } from "features/constants";
+import {
+  ProgresSkillsInterface,
+  CircularSkillsInterface,
+} from "features/interfaces";
 
 const About: FC = () => {
   return (
@@ -19,20 +24,22 @@ const About: FC = () => {
         </Stack>
         <div className={styles.skillcontainer}>
           <div>
-            <ProgressBar width="95%" title="HTML/CSS" />
-            <ProgressBar width="95%" title="Javascript" />
-            <ProgressBar width="90%" title="Express JS" />
-            <ProgressBar width="95%" title="React" />
-            <ProgressBar width="95%" title="Node JS" />
-            <ProgressBar width="80%" title="Microservices" />
-            <ProgressBar width="90%" title="REST API" />
-            <ProgressBar width="75%" title="GraphQL" />
+            {progressSkills.map(
+              ({ id, title, width }: ProgresSkillsInterface) => (
+                <ProgressBar key={id} title={title} width={width} />
+              )
+            )}
           </div>
           <div className={styles.circularskill}>
-            <CircularProgress percentage={90} title="Azure DevOps" />
-            <CircularProgress percentage={70} title="Cosmos DB" />
-            <CircularProgress percentage={75} title="No SQL" />
-            <CircularProgress percentage={75} title="No SQL" />
+            {circularSkills.map(
+              ({ id, title, percentage }: CircularSkillsInterface) => (
+                <CircularProgress
+                  key={id}
+                  title={title}
+                  percentage={percentage}
+                />
+              )
+            )}
           </div>
         </div>
       </div>
