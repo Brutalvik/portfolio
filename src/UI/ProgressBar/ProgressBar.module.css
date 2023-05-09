@@ -4,8 +4,10 @@
   height: 5vh;
   width: 100%;
   display: grid;
-  grid-template-columns: 100px 300px 1fr;
+  grid-template-columns: 150px 250px 100px;
   grid-gap: 5px;
+  user-select: none;
+  cursor: pointer;
 }
 
 .container > label {
@@ -44,7 +46,7 @@
 
 .text {
   font-size: 20px;
-  justify-self: center;
+  justify-self: left;
   font-weight: 500;
 }
 

@@ -20,12 +20,19 @@ const About: FC = () => {
       </div>
       <div className={styles.skillcontainer}>
         <div>
+          <ProgressBar width="95%" title="HTML" />
           <ProgressBar width="95%" title="Javascript" />
-          <ProgressBar width="10%" title="React" />
+          <ProgressBar width="90%" title="CSS" />
+          <ProgressBar width="95%" title="React" />
+          <ProgressBar width="95%" title="Node JS" />
+          <ProgressBar width="80%" title="Microservices" />
+          <ProgressBar width="90%" title="REST API" />
+          <ProgressBar width="75%" title="GraphQL" />
         </div>
-        <div>
-          <CircularProgress percentage={90} title="Javascript" />
-          <CircularProgress percentage={50} title="React" />
+        <div className={styles.circularskill}>
+          <CircularProgress percentage={90} title="Azure DevOps" />
+          <CircularProgress percentage={70} title="Cosmos DB" />
+          <CircularProgress percentage={75} title="No SQL" />
         </div>
       </div>
     </Suspense>

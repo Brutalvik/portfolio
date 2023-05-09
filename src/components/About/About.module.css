@@ -2,12 +2,12 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
-  margin: 2%;
+  margin: 0% 5% 0% 5%;
 }
 
 .text {
   text-align: justify;
-  padding: 5%;
+  padding: 0% 5% 0% 5%;
   font-size: 20px;
   user-select: none;
   cursor: pointer;
@@ -16,7 +16,14 @@
 .skillcontainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 5%;
+  margin: 2% 10% 0% 10%;
+  justify-self: center;
+  align-self: center;
+}
+
+.circularskill {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .divider {
