@@ -26,9 +26,16 @@
   animation: fill 1s ease-in-out forwards;
 }
 
-.text {
+.textLight {
   font-size: 2em;
-  color: var(--dark-text);
+  font-weight: 500;
+  fill: var(--light-text);
+}
+
+.textDark {
+  font-size: 2em;
+  font-weight: 500;
+  fill: var(--dark-text);
 }
 
 @keyframes fill {

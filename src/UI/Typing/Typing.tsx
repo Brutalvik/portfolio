@@ -12,6 +12,7 @@ const Typing: FC<TypingInterface> = ({ sequence }) => {
       repeat={Infinity}
       deletionSpeed={1}
       className={styles.typing}
+      style={{ fontSize: "1.2em" }}
     />
   );
 };

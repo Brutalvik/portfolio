@@ -3,16 +3,19 @@ import styles from "./CircularProgress.module.css";
 import { useAppSelector } from "app/hooks";
 import { CircularProgressInterface } from "features/interfaces";
 
-const CircularProgress: FC<CircularProgressInterface> = ({ percentage }) => {
+const CircularProgress: FC<CircularProgressInterface> = ({
+  percentage,
+  title,
+}) => {
   const { darkMode } = useAppSelector((state) => state.theme);
   const radius = 85;
   const circularWidth = 200;
   const percentageValue = percentage >= 0 && percentage <= 100 ? percentage : 0;
-  const strokeArray = radius * Math.PI * 2;
-  const strokeOffset = strokeArray - (strokeArray * percentageValue) / 100;
+  // const strokeArray = radius * Math.PI * 2;
+  // const strokeOffset = strokeArray - (strokeArray * percentageValue) / 100;
   return (
     <div className={styles.container}>
-      <label>Javscript</label>
+      <label>{title}</label>
       <svg
         width={circularWidth}
         height={circularWidth}
@@ -43,7 +46,7 @@ const CircularProgress: FC<CircularProgressInterface> = ({ percentage }) => {
           y="50%"
           dy="0.3em"
           textAnchor="middle"
-          className={styles.text}
+          className={darkMode ? styles.textLight : styles.textDark}
         >
           {percentageValue}%
         </text>

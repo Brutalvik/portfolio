@@ -11,18 +11,22 @@ const About: FC = () => {
   return (
     <Suspense fallback={<SpinnerItem />}>
       <div className={styles.container}>
-        <Stack direction="row" h="auto" p={2}>
+        <Stack direction="row">
           <Name childName="About Me" />
         </Stack>
-        <Stack direction="row" h="auto" p={2}>
-          <Divider orientation="vertical" />
+        <Stack direction="row">
           <Text className={styles.text}>{aboutMeDescription}</Text>
         </Stack>
       </div>
-      <div>
-        <ProgressBar width="45%" />
-        <CircularProgress percentage={90} />
-        <CircularProgress percentage={50} />
+      <div className={styles.skillcontainer}>
+        <div>
+          <ProgressBar width="95%" title="Javascript" />
+          <ProgressBar width="10%" title="React" />
+        </div>
+        <div>
+          <CircularProgress percentage={90} title="Javascript" />
+          <CircularProgress percentage={50} title="React" />
+        </div>
       </div>
     </Suspense>
   );

@@ -35,9 +35,11 @@ export interface CustomInputInterface {
 }
 
 export interface ProgressBarInterface {
+  title: string;
   width: string;
 }
 
 export interface CircularProgressInterface {
+  title: string;
   percentage: number;
 }

@@ -1,8 +1,17 @@
 @import url("../../App.module.css");
 
 .container {
-  height: 3vh;
-  width: 40%;
+  height: 5vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100px 300px 1fr;
+  grid-gap: 5px;
+}
+
+.container > label {
+  font-size: 20px;
+  text-align: left;
+  font-weight: 500;
 }
 
 .progress {
@@ -14,6 +23,8 @@
   display: flex;
   justify-content: left;
   align-items: center;
+  margin-top: 5px;
+  overflow: hidden;
 }
 
 .innerprogress {
@@ -29,6 +40,12 @@
 
 .innerprogress.stroke {
   stroke: var(--dark-text) !important;
+}
+
+.text {
+  font-size: 20px;
+  justify-self: center;
+  font-weight: 500;
 }
 
 @keyframes slide-in {

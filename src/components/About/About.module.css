@@ -12,3 +12,13 @@
   user-select: none;
   cursor: pointer;
 }
+
+.skillcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5%;
+}
+
+.divider {
+  color-scheme: red !important;
+}

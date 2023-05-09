@@ -25,8 +25,6 @@
   display: grid;
   place-items: center;
 }
-/* font-size: 25px;
-  font-family: "Roboto Condensed"; */
 
 .content {
   display: grid;
@@ -44,7 +42,6 @@ p {
 }
 
 .typing {
-  font-size: 15px;
-  margin: 5px 0px 0px 30px;
+  margin: 5px 0px 15px 30px;
   text-align: center;
 }
