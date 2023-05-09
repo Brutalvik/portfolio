@@ -8,7 +8,7 @@ const CircularProgress: FC<CircularProgressInterface> = ({
   title,
 }) => {
   const { darkMode } = useAppSelector((state) => state.theme);
-  const radius = 85;
+  const radius = 60;
   const circularWidth = 200;
   const percentageValue = percentage >= 0 && percentage <= 100 ? percentage : 0;
   // const strokeArray = radius * Math.PI * 2;
@@ -36,6 +36,8 @@ const CircularProgress: FC<CircularProgressInterface> = ({
           className={styles.circleprogress}
           style={
             {
+              // "--strokeArray": strokeArray,
+              // "--strokeOffset": strokeOffset,
               "--percentage": percentageValue,
             } as React.CSSProperties
           }
