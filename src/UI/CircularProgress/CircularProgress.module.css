@@ -5,7 +5,6 @@
   grid-template-columns: repeat(auto-fit, minmax(2fr, auto));
   justify-content: center;
   align-items: center;
-
   user-select: none;
 }
 

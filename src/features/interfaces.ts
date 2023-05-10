@@ -35,13 +35,11 @@ export interface CustomInputInterface {
 }
 
 export interface ProgressBarInterface {
-  key: number;
   title: string;
   width: string;
 }
 
 export interface CircularProgressInterface {
-  key: number;
   title: string;
   percentage: number;
 }
@@ -56,4 +54,16 @@ export interface CircularSkillsInterface {
   id: number;
   title: string;
   percentage: number;
+}
+
+export interface TimelineInterface {
+  data: any;
+}
+
+export interface TimelineDataInterface {
+  icon: any;
+  date: string;
+  position: string;
+  location: string;
+  content?: string;
 }

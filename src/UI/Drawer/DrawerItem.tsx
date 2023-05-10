@@ -40,7 +40,7 @@ const DrawerItem: FC = () => {
             <div className={styles.menuItem}>
               <p onClick={() => navigatePage("/")}>Home</p>
               <p onClick={() => navigatePage("/about")}>About</p>
-              <p onClick={() => navigatePage("/skills")}>Skills</p>
+              <p onClick={() => navigatePage("/skills")}>Timeline</p>
               <p onClick={() => navigatePage("/portfolio")}>Portfolio</p>
               <p onClick={() => navigatePage("/contact")}>Contact</p>
             </div>

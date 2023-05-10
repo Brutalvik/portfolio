@@ -1,0 +1,20 @@
+@import url("../../App.module.css");
+
+.dark {
+  color: var(--dark-background);
+}
+
+.light {
+  color: var(--light-background);
+}
+
+.light > h4,
+.dark > h4 {
+  font-weight: 500;
+}
+
+.light > h3,
+.dark > h3 {
+  font-size: 20px;
+  font-weight: 500;
+}

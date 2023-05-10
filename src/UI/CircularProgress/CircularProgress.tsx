@@ -4,7 +4,6 @@ import { useAppSelector } from "app/hooks";
 import { CircularProgressInterface } from "features/interfaces";
 
 const CircularProgress: FC<CircularProgressInterface> = ({
-  key,
   percentage,
   title,
 }) => {
@@ -15,7 +14,7 @@ const CircularProgress: FC<CircularProgressInterface> = ({
   // const strokeArray = radius * Math.PI * 2;
   // const strokeOffset = strokeArray - (strokeArray * percentageValue) / 100;
   return (
-    <div className={styles.container} key={key}>
+    <div className={styles.container}>
       <label>{title}</label>
       <svg
         width={circularWidth}
