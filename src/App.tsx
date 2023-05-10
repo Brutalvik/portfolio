@@ -14,6 +14,7 @@ const Timeline = lazy(
   () => import("components/TimelineContent/TimelineContent")
 );
 const Portfolio = lazy(() => import("components/Portfolio/Portfolio"));
+const Contact = lazy(() => import("components/Contact/Contact"));
 
 const App: FC = () => {
   const darkMode = useAppSelector((state) => state.theme.darkMode);
@@ -27,6 +28,7 @@ const App: FC = () => {
           <Route path="/about" element={<About />} />
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Suspense>
     </div>
