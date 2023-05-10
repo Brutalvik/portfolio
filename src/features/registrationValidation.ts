@@ -20,3 +20,11 @@ export const registrationFormSchema = yup.object().shape({
     })
     .required("Required !"),
 });
+
+export const loginFormSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Please enter a valid email !")
+    .required("Required !"),
+  password: yup.string().required("Required !"),
+});

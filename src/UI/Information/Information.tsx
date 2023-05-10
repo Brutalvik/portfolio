@@ -22,6 +22,8 @@ const Information: FC<InformationInterface> = ({
   buttonName,
   variant,
   secondaryButtonName,
+  secondaryOnClick,
+  isDisabled,
 }) => {
   return (
     <div>
@@ -33,12 +35,23 @@ const Information: FC<InformationInterface> = ({
           <ModalBody>{content}</ModalBody>
           <ModalFooter>
             {!isUndefined(buttonName) && (
-              <Button colorScheme={btnColorScheme} mr={3} onClick={onclick}>
+              <Button
+                isDisabled={isDisabled}
+                colorScheme={btnColorScheme}
+                mr={3}
+                onClick={onclick}
+              >
                 {buttonName}
               </Button>
             )}
             {!isUndefined(variant) && (
-              <Button variant={variant}>{secondaryButtonName}</Button>
+              <Button
+                isDisabled={isDisabled}
+                variant={variant}
+                onClick={secondaryOnClick}
+              >
+                {secondaryButtonName}
+              </Button>
             )}
           </ModalFooter>
         </ModalContent>

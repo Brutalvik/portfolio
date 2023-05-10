@@ -4,6 +4,7 @@ const initialState = {
   darkMode: true,
   hamburgerIsOpen: false,
   registerModal: false,
+  loginModal: false,
 };
 
 const theme = createSlice({
@@ -16,13 +17,20 @@ const theme = createSlice({
     toggleHamburger: (state) => {
       state.hamburgerIsOpen = !state.hamburgerIsOpen;
     },
-    toggleRegiserModal: (state, { payload }: PayloadAction<boolean>) => {
+    toggleRegisterModal: (state, { payload }: PayloadAction<boolean>) => {
       state.registerModal = payload;
+    },
+    toggleLoginModal: (state, { payload }: PayloadAction<boolean>) => {
+      state.loginModal = payload;
     },
   },
 });
 
-export const { toggleTheme, toggleHamburger, toggleRegiserModal } =
-  theme.actions;
+export const {
+  toggleTheme,
+  toggleHamburger,
+  toggleRegisterModal,
+  toggleLoginModal,
+} = theme.actions;
 
 export default theme.reducer;

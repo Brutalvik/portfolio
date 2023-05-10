@@ -75,8 +75,10 @@ export interface InformationInterface {
   title?: string;
   content?: any;
   onclick?: () => void;
+  secondaryOnClick?: () => void;
   buttonName?: string;
   btnColorScheme?: string;
   secondaryButtonName?: string;
   variant?: string;
+  isDisabled?: boolean;
 }

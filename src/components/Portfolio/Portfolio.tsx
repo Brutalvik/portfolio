@@ -1,25 +1,32 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, lazy } from "react";
 import Information from "UI/Information/Information";
 import { useAppDispatch, useAppSelector } from "app/hooks";
-import { toggleRegiserModal } from "app/reducers/theme";
-import Register from "Forms/Register/Register";
+import { toggleLoginModal, toggleRegisterModal } from "app/reducers/theme";
 import { INFO } from "features/constants";
 import { useNavigate } from "react-router-dom";
+
+const Register = lazy(() => import("Forms/Register/Register"));
+const Login = lazy(() => import("Forms/Login/Login"));
 
 const Portfolio: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { registerModal } = useAppSelector((state) => state.theme);
+  const { registerModal, loginModal } = useAppSelector((state) => state.theme);
   const [warning, setWarning] = useState(true);
   const [information, setInformation] = useState(INFO);
+  const [disabled, setDisabled] = useState(false);
 
   const onClickRegister = () => {
-    dispatch(toggleRegiserModal(true));
+    dispatch(toggleRegisterModal(true));
+  };
+
+  const onClickLogin = () => {
+    dispatch(toggleLoginModal(true));
   };
 
   const handleClose = () => {
+    setDisabled(true);
     let count = 5;
-
     const intervalId = setInterval(() => {
       setInformation(`You will be redirect to homepage in ${count} seconds`);
       if (count === 0) {
@@ -34,7 +41,8 @@ const Portfolio: FC = () => {
   };
 
   useEffect(() => {
-    dispatch(toggleRegiserModal(false));
+    dispatch(toggleRegisterModal(false));
+    dispatch(toggleLoginModal(false));
   }, []);
 
   return (
@@ -49,13 +57,23 @@ const Portfolio: FC = () => {
         btnColorScheme="teal"
         variant="outline"
         secondaryButtonName="Login"
+        secondaryOnClick={onClickLogin}
+        isDisabled={disabled}
       />
       {registerModal && (
         <Information
           isopen={registerModal}
-          onclose={() => dispatch(toggleRegiserModal(false))}
+          onclose={() => dispatch(toggleRegisterModal(false))}
           title="Register"
           content={<Register />}
+        />
+      )}
+      {loginModal && (
+        <Information
+          isopen={loginModal}
+          onclose={() => dispatch(toggleLoginModal(false))}
+          title="Register"
+          content={<Login />}
         />
       )}
     </div>
