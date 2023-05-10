@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import styles from "./Login.module.css";
 import {
   FormControl,
@@ -14,13 +14,21 @@ import { useFormik } from "formik";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomInput from "UI/CustomInput/CustomInput";
 import { loginFormSchema } from "features/registrationValidation";
-
-const onSubmit = (values: any) => {
-  console.log(values);
-};
+import { useAppDispatch, useAppSelector } from "app/hooks";
+import { loginUser } from "app/thunks/userLoginThunk";
+import { userLoginReset } from "app/reducers/login";
 
 const Login: FC = () => {
+  const dispatch = useAppDispatch();
   const [visible, setVisible] = useState(false);
+
+  const user = useAppSelector((state) => state.login);
+  console.log(user);
+
+  const onSubmit = (values: any) => {
+    dispatch(loginUser({ values, dispatch }));
+  };
+
   const { values, handleBlur, handleSubmit, errors, touched, handleChange } =
     useFormik({
       initialValues: {
@@ -31,13 +39,17 @@ const Login: FC = () => {
       onSubmit,
     });
 
+  useEffect(() => {
+    dispatch(userLoginReset());
+  }, []);
+
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
         <CustomInput
           formLabel="Email"
           name="email"
-          tooltipLabel="Enter your email."
+          tooltipLabel="Enter your email"
           type="text"
           size="md"
           variant="flushed"
@@ -53,7 +65,7 @@ const Login: FC = () => {
           isInvalid={(errors.password && touched.password) || false}
         >
           <FormLabel>Password</FormLabel>
-          <Tooltip label="Create a password with atleast 4 characters.">
+          <Tooltip label="Enter your password">
             <InputGroup size="md">
               <Input
                 type={visible ? "text" : "password"}

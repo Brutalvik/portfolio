@@ -24,7 +24,7 @@ const Portfolio: FC = () => {
   const { isRegistered, message, status } = useAppSelector(
     (state) => state.register
   );
-  useAppSelector((state) => console.log(state.register));
+  // useAppSelector((state) => console.log(state.register));
 
   const onClickRegister = () => {
     dispatch(toggleRegisterModal(true));

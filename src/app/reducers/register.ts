@@ -26,7 +26,7 @@ const register = createSlice({
       state.error = true;
       state.status = payload.status;
     },
-    userRegisterReset: (state) => {
+    userRegisterReset: () => {
       return { ...initialState };
     },
   },

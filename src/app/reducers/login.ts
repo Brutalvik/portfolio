@@ -14,7 +14,7 @@ const login = createSlice({
   initialState,
   reducers: {
     userLoginSuccess: (state, { payload }: PayloadAction<any>) => {
-      state.isLoggedIn = payload.data.isLoggedIn;
+      state.isLoggedIn = payload.data.isLoggedin;
       state.data = payload.data.data;
       state.message = payload.data.message;
       state.status = payload.status;
@@ -23,12 +23,12 @@ const login = createSlice({
       state.processing = payload;
     },
     userLoginFailed: (state, { payload }: PayloadAction<any>) => {
-      state.isLoggedIn = payload.data.isRegistered;
+      state.isLoggedIn = payload.data.isLoggedin;
       state.message = payload.data.message;
       state.error = true;
       state.status = payload.status;
     },
-    userLoginReset: (state) => {
+    userLoginReset: () => {
       return { ...initialState };
     },
   },
