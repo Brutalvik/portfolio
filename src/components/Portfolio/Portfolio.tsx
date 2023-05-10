@@ -72,7 +72,7 @@ const Portfolio: FC = () => {
         <Information
           isopen={loginModal}
           onclose={() => dispatch(toggleLoginModal(false))}
-          title="Register"
+          title="Login"
           content={<Login />}
         />
       )}
