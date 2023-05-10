@@ -11,6 +11,7 @@ export interface FrameInterface {
 
 export interface TypingInterface {
   sequence?: any;
+  repeat?: number;
 }
 
 export interface FileDownloadParams {

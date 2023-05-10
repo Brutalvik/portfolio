@@ -8,13 +8,14 @@ import Header from "components/Header/Header";
 import Home from "components/Home/Home";
 import SpinnerItem from "UI/Spinner/SpinnerItem";
 
-//Lazy Loading
+//Lazy Loading Components
 const About = lazy(() => import("components/About/About"));
 const Timeline = lazy(
   () => import("components/TimelineContent/TimelineContent")
 );
 const Portfolio = lazy(() => import("components/Portfolio/Portfolio"));
 const Contact = lazy(() => import("components/Contact/Contact"));
+const NotFound = lazy(() => import("components/NotFound/NotFound"));
 
 const App: FC = () => {
   const darkMode = useAppSelector((state) => state.theme.darkMode);
@@ -29,6 +30,7 @@ const App: FC = () => {
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </div>

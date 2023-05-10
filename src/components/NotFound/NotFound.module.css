@@ -1,0 +1,28 @@
+@import url("../../App.module.css");
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
+  grid-template-rows: auto;
+  margin: 10% 5%;
+  height: 40vh;
+  min-width: 300px;
+  background-color: var(--dark-background);
+}
+
+.header {
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  color: var(--dark-text);
+}
+
+.text {
+  font-size: 25px;
+  color: var(--dark-text);
+  margin: 5% 5%;
+}
+
+.footer {
+  display: grid;
+  place-items: center;
+}

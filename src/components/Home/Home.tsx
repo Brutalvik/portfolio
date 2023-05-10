@@ -65,7 +65,7 @@ const Home: FC = () => {
           <div className={styles.content}>
             <Name childName="Vikram Kumar" />
             <div className={styles.typing}>
-              <Typing sequence={sequenceData} />
+              <Typing sequence={sequenceData} repeat={Infinity} />
             </div>
           </div>
           <Button
