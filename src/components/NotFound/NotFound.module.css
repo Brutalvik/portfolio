@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
   grid-template-rows: auto;
   margin: 10% 5%;
-  height: 40vh;
+  min-height: 300px;
   min-width: 300px;
   background-color: var(--dark-background);
 }
@@ -25,4 +25,5 @@
 .footer {
   display: grid;
   place-items: center;
+  margin: 10% 0% 0% 0%;
 }
