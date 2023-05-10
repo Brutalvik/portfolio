@@ -11,13 +11,13 @@ import { TimelineDataInterface, TimelineInterface } from "features/interfaces";
 
 const Timeline: FC<TimelineInterface> = ({ data }) => {
   const { darkMode } = useAppSelector((state) => state.theme);
-  console.log(data);
   return (
     <Suspense fallback={<SpinnerItem />}>
       <div className={styles.container}>
         <VerticalTimeline>
           {data?.map(
             ({
+              id,
               icon,
               date,
               position,
@@ -26,6 +26,7 @@ const Timeline: FC<TimelineInterface> = ({ data }) => {
             }: TimelineDataInterface) => {
               return (
                 <VerticalTimelineElement
+                  key={id}
                   className="vertical-timeline-element--work"
                   contentStyle={{
                     background: darkMode

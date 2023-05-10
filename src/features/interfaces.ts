@@ -61,6 +61,7 @@ export interface TimelineInterface {
 }
 
 export interface TimelineDataInterface {
+  id: number;
   icon: any;
   date: string;
   position: string;
@@ -76,4 +77,6 @@ export interface InformationInterface {
   onclick?: () => void;
   buttonName?: string;
   btnColorScheme?: string;
+  secondaryButtonName?: string;
+  variant?: string;
 }

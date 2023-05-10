@@ -31,3 +31,6 @@ export const circularSkills = [
   { id: 3, title: "No SQL", percentage: 75 },
   { id: 4, title: "Kafka", percentage: 70 },
 ];
+
+export const INFO =
+  "To view my portfolio, you must register if you are a new user or you can choose to login";

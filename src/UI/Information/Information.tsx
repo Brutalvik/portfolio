@@ -20,6 +20,8 @@ const Information: FC<InformationInterface> = ({
   onclick,
   btnColorScheme,
   buttonName,
+  variant,
+  secondaryButtonName,
 }) => {
   return (
     <div>
@@ -34,6 +36,9 @@ const Information: FC<InformationInterface> = ({
               <Button colorScheme={btnColorScheme} mr={3} onClick={onclick}>
                 {buttonName}
               </Button>
+            )}
+            {!isUndefined(variant) && (
+              <Button variant={variant}>{secondaryButtonName}</Button>
             )}
           </ModalFooter>
         </ModalContent>
