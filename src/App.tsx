@@ -10,7 +10,10 @@ import SpinnerItem from "UI/Spinner/SpinnerItem";
 
 //Lazy Loading
 const About = lazy(() => import("components/About/About"));
-const Skills = lazy(() => import("components/Skills/Skills"));
+const Timeline = lazy(
+  () => import("components/TimelineContent/TimelineContent")
+);
+const Portfolio = lazy(() => import("components/Portfolio/Portfolio"));
 
 const App: FC = () => {
   const darkMode = useAppSelector((state) => state.theme.darkMode);
@@ -22,7 +25,8 @@ const App: FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
+          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
       </Suspense>
     </div>

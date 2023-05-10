@@ -1,8 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   darkMode: true,
   hamburgerIsOpen: false,
+  registerModal: false,
 };
 
 const theme = createSlice({
@@ -15,9 +16,13 @@ const theme = createSlice({
     toggleHamburger: (state) => {
       state.hamburgerIsOpen = !state.hamburgerIsOpen;
     },
+    toggleRegiserModal: (state, { payload }: PayloadAction<boolean>) => {
+      state.registerModal = payload;
+    },
   },
 });
 
-export const { toggleTheme, toggleHamburger } = theme.actions;
+export const { toggleTheme, toggleHamburger, toggleRegiserModal } =
+  theme.actions;
 
 export default theme.reducer;

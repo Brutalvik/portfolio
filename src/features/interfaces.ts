@@ -67,3 +67,13 @@ export interface TimelineDataInterface {
   location: string;
   content?: string;
 }
+9;
+export interface InformationInterface {
+  isopen: boolean;
+  onclose: () => void;
+  title?: string;
+  content?: any;
+  onclick?: () => void;
+  buttonName?: string;
+  btnColorScheme?: string;
+}

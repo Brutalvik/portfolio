@@ -39,7 +39,7 @@ const timelineData = [
   },
 ];
 
-const Skills: FC = () => {
+const TimelineContent: FC = () => {
   return (
     <div>
       <Timeline data={timelineData} />
@@ -47,4 +47,4 @@ const Skills: FC = () => {
   );
 };
 
-export default Skills;
+export default TimelineContent;
