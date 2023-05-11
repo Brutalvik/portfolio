@@ -1,4 +1,4 @@
 .container {
   display: flex;
-  margin: 5% 0% 0% 20%;
+  justify-content: center;
 }

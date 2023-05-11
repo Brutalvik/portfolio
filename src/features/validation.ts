@@ -40,4 +40,5 @@ export const contactFormSchema = yup.object().shape({
     .required("Required !"),
   phone: yup.string().required("Required !"),
   message: yup.string().required("Required"),
+  token: yup.string().required("Prove that you are a human ?"),
 });

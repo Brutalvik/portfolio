@@ -6,6 +6,7 @@ import CustomInput from "UI/CustomInput/CustomInput";
 import { contactFormSchema } from "features/validation";
 import { useAppDispatch } from "app/hooks";
 import Recaptcha from "UI/Recaptcha/Recaptcha";
+import { isEmpty } from "lodash";
 
 const Register: FC = () => {
   const dispatch = useAppDispatch();
@@ -100,6 +101,9 @@ const Register: FC = () => {
           errorMessage={errors.message}
         />
         <Recaptcha onChange={(token) => getToken(token as string)} />
+        {errors.token && touched.token && (
+          <p className={styles.error}>{errors.token}</p>
+        )}
         <div className={styles.btn}>
           <Button
             colorScheme="teal"
