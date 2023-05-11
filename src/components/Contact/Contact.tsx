@@ -1,7 +1,6 @@
 import { FC, Suspense, lazy } from "react";
 import styles from "./Contact.module.css";
 import SpinnerItem from "UI/Spinner/SpinnerItem";
-import { ScaleFade } from "@chakra-ui/react";
 
 const ContactForm = lazy(() => import("Forms/ContactForm/ContactForm"));
 const Map = lazy(() => import("components/Map/Map"));
