@@ -28,3 +28,16 @@ export const loginFormSchema = yup.object().shape({
     .required("Required !"),
   password: yup.string().required("Required !"),
 });
+
+export const contactFormSchema = yup.object().shape({
+  name: yup
+    .string()
+    .min(3, "Name should be minimum of 3 characters !")
+    .required("Required !"),
+  email: yup
+    .string()
+    .email("Please enter a valid email !")
+    .required("Required !"),
+  phone: yup.string().required("Required !"),
+  message: yup.string().required("Required"),
+});

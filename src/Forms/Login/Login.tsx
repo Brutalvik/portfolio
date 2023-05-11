@@ -13,7 +13,7 @@ import {
 import { useFormik } from "formik";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomInput from "UI/CustomInput/CustomInput";
-import { loginFormSchema } from "features/registrationValidation";
+import { loginFormSchema } from "features/validation";
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { loginUser } from "app/thunks/userLoginThunk";
 import { userLoginReset } from "app/reducers/login";

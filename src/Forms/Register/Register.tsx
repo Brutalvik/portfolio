@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import styles from "./Register.module.css";
 import {
   FormControl,
@@ -9,12 +9,11 @@ import {
   InputRightElement,
   Tooltip,
   Button,
-  useToast,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomInput from "UI/CustomInput/CustomInput";
-import { registrationFormSchema } from "features/registrationValidation";
+import { registrationFormSchema } from "features/validation";
 import { useAppDispatch } from "app/hooks";
 import { register } from "app/thunks/userRegistrationThunk";
 

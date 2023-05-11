@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  min-width: 300px;
+  margin: 0% auto;
+}
+
+.btn {
+  display: grid;
+  align-items: center;
+  margin: 20px 0px 0px 0px;
+}

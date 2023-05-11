@@ -36,7 +36,7 @@ export const INFO =
   "To view my portfolio, you must register if you are a new user or you can choose to login";
 
 export const notFoundData = [
-  `Hmmm.... Looks like one of our components fell asleep. However, you can try to browse the other features. Click below to return to homepage.
+  `Hmmm.... Looks like one of our components fell asleep or its under development. Click below to return to homepage.
   `,
   1000,
 ];
