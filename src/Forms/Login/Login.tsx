@@ -17,6 +17,7 @@ import { loginFormSchema } from "features/validation";
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { loginUser } from "app/thunks/userLoginThunk";
 import { userLoginReset } from "app/reducers/login";
+import Recaptcha from "UI/Recaptcha/Recaptcha";
 
 const Login: FC = () => {
   const dispatch = useAppDispatch();
@@ -29,19 +30,31 @@ const Login: FC = () => {
     dispatch(loginUser({ values, dispatch }));
   };
 
-  const { values, handleBlur, handleSubmit, errors, touched, handleChange } =
-    useFormik({
-      initialValues: {
-        email: "",
-        password: "",
-      },
-      validationSchema: loginFormSchema,
-      onSubmit,
-    });
+  const {
+    values,
+    handleBlur,
+    handleSubmit,
+    errors,
+    touched,
+    handleChange,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      token: "",
+    },
+    validationSchema: loginFormSchema,
+    onSubmit,
+  });
 
   useEffect(() => {
     dispatch(userLoginReset());
   }, []);
+
+  const getToken = (token: string) => {
+    setFieldValue("token", token);
+  };
 
   return (
     <div className={styles.container}>
@@ -88,6 +101,13 @@ const Login: FC = () => {
           </Tooltip>
           {touched.password && (
             <FormErrorMessage>{errors.password}</FormErrorMessage>
+          )}
+        </FormControl>
+        <FormControl>
+          <Recaptcha onChange={(token) => getToken(token as string)} />
+
+          {errors.token && touched.token && (
+            <p className={styles.error}>{errors.token}</p>
           )}
         </FormControl>
         <div className={styles.btn}>

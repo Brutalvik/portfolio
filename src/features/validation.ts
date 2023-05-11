@@ -19,6 +19,7 @@ export const registrationFormSchema = yup.object().shape({
       message: "Min 5 characters, 1 uppercase, 1 lowercase and 1 number !",
     })
     .required("Required !"),
+  token: yup.string().required("Prove that you are a human ?"),
 });
 
 export const loginFormSchema = yup.object().shape({
@@ -27,6 +28,7 @@ export const loginFormSchema = yup.object().shape({
     .email("Please enter a valid email !")
     .required("Required !"),
   password: yup.string().required("Required !"),
+  token: yup.string().required("Prove that you are a human ?"),
 });
 
 export const contactFormSchema = yup.object().shape({

@@ -16,6 +16,7 @@ import CustomInput from "UI/CustomInput/CustomInput";
 import { registrationFormSchema } from "features/validation";
 import { useAppDispatch } from "app/hooks";
 import { register } from "app/thunks/userRegistrationThunk";
+import Recaptcha from "UI/Recaptcha/Recaptcha";
 
 const Register: FC = () => {
   const dispatch = useAppDispatch();
@@ -25,17 +26,29 @@ const Register: FC = () => {
     await dispatch(register({ values, dispatch }));
   };
 
-  const { values, handleBlur, handleSubmit, errors, touched, handleChange } =
-    useFormik({
-      initialValues: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-      },
-      validationSchema: registrationFormSchema,
-      onSubmit,
-    });
+  const {
+    values,
+    handleBlur,
+    handleSubmit,
+    errors,
+    touched,
+    handleChange,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      token: "",
+    },
+    validationSchema: registrationFormSchema,
+    onSubmit,
+  });
+
+  const getToken = (token: string) => {
+    setFieldValue("token", token);
+  };
 
   return (
     <div className={styles.container}>
@@ -110,6 +123,12 @@ const Register: FC = () => {
           </Tooltip>
           {touched.password && (
             <FormErrorMessage>{errors.password}</FormErrorMessage>
+          )}
+        </FormControl>
+        <FormControl>
+          <Recaptcha onChange={(token) => getToken(token as string)} />
+          {errors.token && touched.token && (
+            <p className={styles.error}>{errors.token}</p>
           )}
         </FormControl>
         <div className={styles.btn}>
