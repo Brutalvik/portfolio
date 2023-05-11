@@ -83,3 +83,7 @@ export interface InformationInterface {
   variant?: string;
   isDisabled?: boolean;
 }
+
+export interface IRecaptchaProps {
+  onChange?: (response: string | null) => void;
+}

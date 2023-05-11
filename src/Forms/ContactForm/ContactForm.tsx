@@ -1,13 +1,15 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./ContactForm.module.css";
 import { Button } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import CustomInput from "UI/CustomInput/CustomInput";
 import { contactFormSchema } from "features/validation";
 import { useAppDispatch } from "app/hooks";
+import Recaptcha from "UI/Recaptcha/Recaptcha";
 
 const Register: FC = () => {
   const dispatch = useAppDispatch();
+  const [captchaToken, setCaptchaToken] = useState<string>();
 
   const onSubmit = async (values: any) => {
     console.log(values);
@@ -21,16 +23,22 @@ const Register: FC = () => {
     touched,
     handleChange,
     isSubmitting,
+    setFieldValue,
   } = useFormik({
     initialValues: {
       name: "",
       email: "",
       phone: "",
       message: "",
+      token: "",
     },
     validationSchema: contactFormSchema,
     onSubmit,
   });
+
+  const getToken = (token: string) => {
+    setFieldValue("token", token);
+  };
 
   return (
     <div className={styles.container}>
@@ -91,6 +99,7 @@ const Register: FC = () => {
           touched={touched.message}
           errorMessage={errors.message}
         />
+        <Recaptcha onChange={(token) => getToken(token as string)} />
         <div className={styles.btn}>
           <Button
             colorScheme="teal"
