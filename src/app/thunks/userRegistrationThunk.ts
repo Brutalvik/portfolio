@@ -14,7 +14,6 @@ export const register = createAsyncThunk(
     userRegisterInProgress(true);
     try {
       const { data, status } = await axios.post(URI, values);
-      console.log(data);
       dispatch(userRegisterSuccess({ data, status }));
       dispatch(userRegisterInProgress(false));
     } catch (error: any) {

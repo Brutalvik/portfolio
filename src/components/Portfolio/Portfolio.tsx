@@ -22,7 +22,6 @@ const Portfolio: FC = () => {
   const [disabled, setDisabled] = useState(false);
 
   const { isRegistered, message } = useAppSelector((state) => state.register);
-  useAppSelector((state) => console.log(state.register));
 
   useEffect(() => {
     dispatch(userRegisterReset());
