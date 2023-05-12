@@ -24,7 +24,6 @@ const Login: FC = () => {
   const [visible, setVisible] = useState(false);
 
   const user = useAppSelector((state) => state.login);
-  console.log(user);
 
   const onSubmit = (values: any) => {
     dispatch(loginUser({ values, dispatch }));

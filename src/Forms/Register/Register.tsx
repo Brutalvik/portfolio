@@ -34,6 +34,7 @@ const Register: FC = () => {
     touched,
     handleChange,
     setFieldValue,
+    isSubmitting,
   } = useFormik({
     initialValues: {
       firstName: "",
@@ -136,7 +137,7 @@ const Register: FC = () => {
             colorScheme="teal"
             variant="solid"
             //   onClick={handleFileDownload}
-            //   isLoading={isDownloading}
+            isLoading={isSubmitting}
             size="lg"
             type="submit"
           >

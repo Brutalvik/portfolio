@@ -21,10 +21,14 @@ const Portfolio: FC = () => {
   const [information, setInformation] = useState(INFO);
   const [disabled, setDisabled] = useState(false);
 
-  const { isRegistered, message, status } = useAppSelector(
-    (state) => state.register
-  );
-  // useAppSelector((state) => console.log(state.register));
+  const { isRegistered, message } = useAppSelector((state) => state.register);
+  useAppSelector((state) => console.log(state.register));
+
+  useEffect(() => {
+    dispatch(userRegisterReset());
+    dispatch(toggleRegisterModal(false));
+    dispatch(toggleLoginModal(false));
+  }, []);
 
   const onClickRegister = () => {
     dispatch(toggleRegisterModal(true));
@@ -50,12 +54,6 @@ const Portfolio: FC = () => {
     return count;
   };
 
-  useEffect(() => {
-    dispatch(toggleRegisterModal(false));
-    dispatch(toggleLoginModal(false));
-    dispatch(userRegisterReset());
-  }, []);
-
   useDidMountEffect(() => {
     if (isRegistered) {
       dispatch(toggleRegisterModal(false));
@@ -75,7 +73,7 @@ const Portfolio: FC = () => {
         isClosable: true,
       });
     }
-  }, [status]);
+  }, [isRegistered, message]);
 
   return (
     <Suspense fallback={<SpinnerItem />}>
