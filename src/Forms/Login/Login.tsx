@@ -37,6 +37,7 @@ const Login: FC = () => {
     touched,
     handleChange,
     setFieldValue,
+    isSubmitting,
   } = useFormik({
     initialValues: {
       email: "",
@@ -114,7 +115,7 @@ const Login: FC = () => {
             colorScheme="teal"
             variant="solid"
             //   onClick={handleFileDownload}
-            //   isLoading={isDownloading}
+            isLoading={isSubmitting}
             size="lg"
             type="submit"
           >

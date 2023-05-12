@@ -23,6 +23,8 @@ const Portfolio: FC = () => {
 
   const { isRegistered, message } = useAppSelector((state) => state.register);
 
+  const { isLoggedIn } = useAppSelector((state) => state.login);
+
   useEffect(() => {
     dispatch(userRegisterReset());
     dispatch(toggleRegisterModal(false));
@@ -52,6 +54,10 @@ const Portfolio: FC = () => {
     }, 1000);
     return count;
   };
+
+  useDidMountEffect(() => {
+    isLoggedIn && navigate("/dashboard");
+  }, [isLoggedIn]);
 
   useDidMountEffect(() => {
     if (isRegistered) {

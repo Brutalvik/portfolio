@@ -87,3 +87,19 @@ export interface InformationInterface {
 export interface IRecaptchaProps {
   onChange?: (response: string | null) => void;
 }
+
+export interface LoginDataInterface {
+  firstName?: string;
+  lastName?: string;
+  id?: string;
+  isLoggedin?: boolean;
+}
+
+export interface AlertDialogeInterface {
+  onClose?: any;
+  isOpen?: any;
+  cancelRef?: any;
+  header: string;
+  body: string;
+  onCancel?: any;
+}

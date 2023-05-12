@@ -16,10 +16,12 @@ const Timeline = lazy(
 const Portfolio = lazy(() => import("components/Portfolio/Portfolio"));
 const Contact = lazy(() => import("components/Contact/Contact"));
 const NotFound = lazy(() => import("components/NotFound/NotFound"));
+const Dashboard = lazy(() => import("components/Dashboard/Dashboard"));
 
 const App: FC = () => {
   const darkMode = useAppSelector((state) => state.theme.darkMode);
   const theme = darkMode ? styles.light : styles.dark;
+  const { isLoggedIn } = useAppSelector((state) => state.login);
   return (
     <div className={theme}>
       <Suspense fallback={<SpinnerItem />}>
@@ -30,6 +32,10 @@ const App: FC = () => {
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/dashboard"
+            element={isLoggedIn ? <Dashboard /> : <Home />}
+          />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </Suspense>
