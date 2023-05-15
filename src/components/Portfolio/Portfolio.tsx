@@ -70,13 +70,14 @@ const Portfolio: FC = () => {
         isClosable: true,
       });
     } else {
-      toast({
-        title: "Failed",
-        description: message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      message !== "" &&
+        toast({
+          title: "Failed",
+          description: message,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
     }
   }, [isRegistered, message]);
 
