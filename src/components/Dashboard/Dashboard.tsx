@@ -4,8 +4,10 @@ import { logoutUser } from "app/thunks/userLogoutThunk";
 import { LoginDataInterface } from "features/interfaces";
 import { FC, useEffect, useState, lazy } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./Dashboard.module.css";
 
 const AlertDialoge = lazy(() => import("UI/AlertDialoge/AlertDialoge"));
+const TabItem = lazy(() => import("components/TabItem/TabItem"));
 
 const Dashboard: FC = () => {
   const dispatch = useAppDispatch();
@@ -28,11 +30,14 @@ const Dashboard: FC = () => {
 
   return (
     <div>
-      Welcome {firstName}
-      <div>
+      <div className={styles.header}>
+        <span>Welcome {firstName}</span>
         <Button colorScheme="teal" onClick={() => setShowAlert(true)}>
           Logout
         </Button>
+      </div>
+      <div>
+        <TabItem />
       </div>
       <div>
         <AlertDialoge

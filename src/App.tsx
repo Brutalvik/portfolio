@@ -34,7 +34,7 @@ const App: FC = () => {
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/dashboard"
-            element={isLoggedIn ? <Dashboard /> : <Home />}
+            element={isLoggedIn ? <Dashboard /> : <Portfolio />}
           />
           <Route path="/*" element={<NotFound />} />
         </Routes>
