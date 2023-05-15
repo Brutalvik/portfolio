@@ -9,6 +9,7 @@ import {
   InputRightElement,
   Tooltip,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -18,15 +19,21 @@ import { useAppDispatch, useAppSelector } from "app/hooks";
 import { loginUser } from "app/thunks/userLoginThunk";
 import { userLoginReset } from "app/reducers/login";
 import Recaptcha from "UI/Recaptcha/Recaptcha";
+import useDidMountEffect from "customHooks/useDidMountEffect";
+import { isEmpty, isNull } from "lodash";
 
 const Login: FC = () => {
   const dispatch = useAppDispatch();
+  const toast = useToast();
   const [visible, setVisible] = useState(false);
+  const [requestId, setRequestId] = useState(null);
 
-  const user = useAppSelector((state) => state.login);
-
+  const { message, isLoggedIn } = useAppSelector((state) => state.login);
+  console.log("message", message);
   const onSubmit = (values: any) => {
-    dispatch(loginUser({ values, dispatch }));
+    dispatch(userLoginReset());
+    const { requestId } = dispatch(loginUser({ values, dispatch }));
+    setRequestId(requestId as any);
   };
 
   const {
@@ -48,13 +55,21 @@ const Login: FC = () => {
     onSubmit,
   });
 
-  useEffect(() => {
-    dispatch(userLoginReset());
-  }, []);
-
   const getToken = (token: string) => {
     setFieldValue("token", token);
   };
+
+  useDidMountEffect(() => {
+    message !== "" &&
+      !isLoggedIn &&
+      toast({
+        title: "Error",
+        description: message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+  }, [requestId, message]);
 
   return (
     <div className={styles.container}>
@@ -104,7 +119,10 @@ const Login: FC = () => {
           )}
         </FormControl>
         <FormControl>
-          <Recaptcha onChange={(token) => getToken(token as string)} />
+          <Recaptcha
+            onChange={(token) => getToken(token as string)}
+            requestId={requestId}
+          />
 
           {errors.token && touched.token && (
             <p className={styles.error}>{errors.token}</p>
@@ -114,8 +132,7 @@ const Login: FC = () => {
           <Button
             colorScheme="teal"
             variant="solid"
-            //   onClick={handleFileDownload}
-            isLoading={isSubmitting}
+            isLoading={message ? false : isSubmitting}
             size="lg"
             type="submit"
           >

@@ -16,6 +16,7 @@ export const loginUser = createAsyncThunk(
       const { data, status } = await axios.post(URI, values);
       dispatch(userLoginSuccess({ data, status }));
       dispatch(userLoginInProgress(false));
+      return data;
     } catch (error: any) {
       const { data, status } = error.response;
       dispatch(userLoginFailed({ data, status }));
