@@ -106,7 +106,7 @@ const Register: FC = () => {
           isInvalid={(errors.password && touched.password) || false}
         >
           <FormLabel>Password</FormLabel>
-          <Tooltip label="Create a password with atleast 4 characters.">
+          <Tooltip label="Create a password with atleast 5 characters.">
             <InputGroup size="md">
               <Input
                 type={visible ? "text" : "password"}
