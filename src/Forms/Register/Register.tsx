@@ -21,9 +21,11 @@ import Recaptcha from "UI/Recaptcha/Recaptcha";
 const Register: FC = () => {
   const dispatch = useAppDispatch();
   const [visible, setVisible] = useState(false);
+  const [requestId, setRequestId] = useState(null);
 
-  const onSubmit = async (values: any) => {
-    await dispatch(register({ values, dispatch }));
+  const onSubmit = (values: any) => {
+    const { requestId } = dispatch(register({ values, dispatch }));
+    setRequestId(requestId as any);
   };
 
   const {
@@ -127,7 +129,10 @@ const Register: FC = () => {
           )}
         </FormControl>
         <FormControl>
-          <Recaptcha onChange={(token) => getToken(token as string)} />
+          <Recaptcha
+            onChange={(token) => getToken(token as string)}
+            requestId={requestId}
+          />
           {errors.token && touched.token && (
             <p className={styles.error}>{errors.token}</p>
           )}

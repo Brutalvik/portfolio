@@ -20,7 +20,6 @@ import { loginUser } from "app/thunks/userLoginThunk";
 import { userLoginReset } from "app/reducers/login";
 import Recaptcha from "UI/Recaptcha/Recaptcha";
 import useDidMountEffect from "customHooks/useDidMountEffect";
-import { isEmpty, isNull } from "lodash";
 
 const Login: FC = () => {
   const dispatch = useAppDispatch();
@@ -29,7 +28,7 @@ const Login: FC = () => {
   const [requestId, setRequestId] = useState(null);
 
   const { message, isLoggedIn } = useAppSelector((state) => state.login);
-  console.log("message", message);
+
   const onSubmit = (values: any) => {
     dispatch(userLoginReset());
     const { requestId } = dispatch(loginUser({ values, dispatch }));
