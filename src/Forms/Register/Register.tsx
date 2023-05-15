@@ -14,16 +14,19 @@ import { useFormik } from "formik";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomInput from "UI/CustomInput/CustomInput";
 import { registrationFormSchema } from "features/validation";
-import { useAppDispatch } from "app/hooks";
+import { useAppDispatch, useAppSelector } from "app/hooks";
 import { register } from "app/thunks/userRegistrationThunk";
 import Recaptcha from "UI/Recaptcha/Recaptcha";
+import { userRegisterReset } from "app/reducers/register";
 
 const Register: FC = () => {
   const dispatch = useAppDispatch();
   const [visible, setVisible] = useState(false);
   const [requestId, setRequestId] = useState(null);
+  const { message } = useAppSelector((state) => state.register);
 
   const onSubmit = (values: any) => {
+    dispatch(userRegisterReset());
     const { requestId } = dispatch(register({ values, dispatch }));
     setRequestId(requestId as any);
   };
@@ -142,7 +145,7 @@ const Register: FC = () => {
             colorScheme="teal"
             variant="solid"
             //   onClick={handleFileDownload}
-            isLoading={isSubmitting}
+            isLoading={message ? false : isSubmitting}
             size="lg"
             type="submit"
           >
