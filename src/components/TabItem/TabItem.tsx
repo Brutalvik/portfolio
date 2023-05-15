@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC, Suspense, lazy } from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+
+const SpinnerItem = lazy(() => import("components/TabItem/TabItem"));
 
 const TabItem: FC<any> = () => {
   return (
-    <div>
+    <Suspense fallback={<SpinnerItem />}>
       <Tabs isFitted variant="enclosed">
         <TabList mb="1em">
           <Tab>App 1</Tab>
@@ -18,7 +20,7 @@ const TabItem: FC<any> = () => {
           <TabPanel>Application 4 development in progress</TabPanel>
         </TabPanels>
       </Tabs>
-    </div>
+    </Suspense>
   );
 };
 

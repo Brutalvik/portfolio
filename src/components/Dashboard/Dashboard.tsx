@@ -5,6 +5,7 @@ import { LoginDataInterface } from "features/interfaces";
 import { FC, useEffect, useState, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Dashboard.module.css";
+import { upperFirst } from "lodash";
 
 const AlertDialoge = lazy(() => import("UI/AlertDialoge/AlertDialoge"));
 const TabItem = lazy(() => import("components/TabItem/TabItem"));
@@ -31,7 +32,7 @@ const Dashboard: FC = () => {
   return (
     <div>
       <div className={styles.header}>
-        <span>Welcome {firstName}</span>
+        <span>Welcome {upperFirst(firstName?.toLowerCase())}</span>
         <Button colorScheme="teal" onClick={() => setShowAlert(true)}>
           Logout
         </Button>
