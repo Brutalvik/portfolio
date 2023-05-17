@@ -33,6 +33,7 @@ export interface CustomInputInterface {
   isInvalid?: any;
   touched?: boolean;
   name?: string;
+  borderColor?: string;
 }
 
 export interface ProgressBarInterface {

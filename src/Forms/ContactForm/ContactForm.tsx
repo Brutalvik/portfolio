@@ -58,6 +58,7 @@ const Register: FC = () => {
           isInvalid={errors.name && touched.name}
           touched={touched.name}
           errorMessage={errors.name}
+          borderColor={darkMode ? "#171923" : "#dbe0e6"}
         />
         <CustomInput
           formLabel="Email"
@@ -72,6 +73,7 @@ const Register: FC = () => {
           isInvalid={errors.email && touched.email}
           touched={touched.email}
           errorMessage={errors.email}
+          borderColor={darkMode ? "#171923" : "#dbe0e6"}
         />
         <CustomInput
           formLabel="Phone Number"
@@ -86,6 +88,7 @@ const Register: FC = () => {
           isInvalid={errors.phone && touched.phone}
           touched={touched.phone}
           errorMessage={errors.phone}
+          borderColor={darkMode ? "#171923" : "#dbe0e6"}
         />
         <CustomInput
           formLabel="Message"
@@ -100,6 +103,7 @@ const Register: FC = () => {
           isInvalid={errors.message && touched.message}
           touched={touched.message}
           errorMessage={errors.message}
+          borderColor={darkMode ? "#171923" : "#dbe0e6"}
         />
         <Recaptcha onChange={(token) => getToken(token as string)} />
         {errors.token && touched.token && (

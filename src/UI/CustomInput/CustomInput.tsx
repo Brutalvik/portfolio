@@ -8,7 +8,6 @@ import {
   Input,
   Tooltip,
 } from "@chakra-ui/react";
-import { useAppSelector } from "app/hooks";
 
 const CustomInput: FC<CustomInputInterface> = ({
   value,
@@ -24,8 +23,8 @@ const CustomInput: FC<CustomInputInterface> = ({
   isInvalid,
   touched,
   name,
+  borderColor,
 }) => {
-  const { darkMode } = useAppSelector((state) => state.theme);
   return (
     <FormControl isInvalid={isInvalid} className={styles.item}>
       <FormLabel>{formLabel}</FormLabel>
@@ -39,7 +38,7 @@ const CustomInput: FC<CustomInputInterface> = ({
           onChange={onChange}
           onBlur={onBlur}
           name={name}
-          borderColor={darkMode ? "#171923" : "#dbe0e6"}
+          borderColor={borderColor}
         />
       </Tooltip>
       {touched && <FormErrorMessage>{errorMessage}</FormErrorMessage>}

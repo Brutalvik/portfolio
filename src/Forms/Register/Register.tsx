@@ -72,6 +72,7 @@ const Register: FC = () => {
           isInvalid={errors.firstName && touched.firstName}
           touched={touched.firstName}
           errorMessage={errors.firstName}
+          borderColor="#CBD5E0"
         />
         <CustomInput
           formLabel="Last Name"
@@ -86,6 +87,7 @@ const Register: FC = () => {
           isInvalid={errors.lastName && touched.lastName}
           touched={touched.lastName}
           errorMessage={errors.lastName}
+          borderColor="#CBD5E0"
         />
         <CustomInput
           formLabel="Email"
@@ -100,6 +102,7 @@ const Register: FC = () => {
           isInvalid={errors.email && touched.email}
           touched={touched.email}
           errorMessage={errors.email}
+          borderColor="#CBD5E0"
         />
         <FormControl
           className={styles.item}
@@ -116,6 +119,7 @@ const Register: FC = () => {
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                borderColor="#CBD5E0"
               />
 
               <InputRightElement width="3rem">

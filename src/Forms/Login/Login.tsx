@@ -86,6 +86,7 @@ const Login: FC = () => {
           isInvalid={errors.email && touched.email}
           touched={touched.email}
           errorMessage={errors.email}
+          borderColor="#CBD5E0"
         />
         <FormControl
           className={styles.item}
@@ -102,6 +103,7 @@ const Login: FC = () => {
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                borderColor="#CBD5E0"
               />
 
               <InputRightElement width="3rem">
