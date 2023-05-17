@@ -16,6 +16,7 @@ const DrawerItem: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { hamburgerIsOpen } = useAppSelector((state) => state.theme);
+  const { isLoggedIn } = useAppSelector((state) => state.login);
 
   const lazyImport = () =>
     import("features/functions").then((module) => {
@@ -43,6 +44,9 @@ const DrawerItem: FC = () => {
               <p onClick={() => navigatePage("/timeline")}>Timeline</p>
               <p onClick={() => navigatePage("/portfolio")}>Portfolio</p>
               <p onClick={() => navigatePage("/contact")}>Contact</p>
+              {isLoggedIn && (
+                <p onClick={() => navigatePage("/dashboard")}>Dashboard</p>
+              )}
             </div>
           </DrawerBody>
 

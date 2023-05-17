@@ -87,6 +87,7 @@ export interface InformationInterface {
 export interface IRecaptchaProps {
   onChange?: (response: string | null) => void;
   requestId?: string | null;
+  theme?: any;
 }
 
 export interface LoginDataInterface {

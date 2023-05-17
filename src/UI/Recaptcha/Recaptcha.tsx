@@ -4,9 +4,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./Recaptcha.module.css";
 import { isNull } from "lodash";
 
-const Recaptcha: FC<IRecaptchaProps> = ({ onChange, requestId }) => {
+const Recaptcha: FC<IRecaptchaProps> = ({ onChange, requestId, theme }) => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const captchaId = recaptchaRef.current?.getWidgetId();
 
   useEffect(() => {
     !isNull(recaptchaRef.current) && recaptchaRef.current.reset();
@@ -18,6 +17,7 @@ const Recaptcha: FC<IRecaptchaProps> = ({ onChange, requestId }) => {
         ref={recaptchaRef}
         sitekey={process.env.REACT_APP_GOOGLE_CATPCHA_SITE_KEY as string}
         onChange={onChange}
+        theme={theme}
       />
     </div>
   );

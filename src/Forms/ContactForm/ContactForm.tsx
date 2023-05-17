@@ -4,13 +4,14 @@ import { Button } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import CustomInput from "UI/CustomInput/CustomInput";
 import { contactFormSchema } from "features/validation";
-import { useAppDispatch } from "app/hooks";
+import { useAppDispatch, useAppSelector } from "app/hooks";
 import Recaptcha from "UI/Recaptcha/Recaptcha";
 import { isEmpty } from "lodash";
 
 const Register: FC = () => {
   const dispatch = useAppDispatch();
   const [captchaToken, setCaptchaToken] = useState<string>();
+  const { darkMode } = useAppSelector((state) => state.theme);
 
   const onSubmit = async (values: any) => {
     console.log(values);
