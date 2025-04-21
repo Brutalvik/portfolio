@@ -26,10 +26,10 @@ export const progressSkills = [
 ];
 
 export const circularSkills = [
-  { id: 1, title: "Azure DevOps", percentage: 90 },
-  { id: 2, title: "Cosmos DB", percentage: 70 },
-  { id: 3, title: "No SQL", percentage: 75 },
-  { id: 4, title: "Kafka", percentage: 70 },
+  { id: 1, title: "Azure", percentage: 90 },
+  { id: 2, title: "SQL/NoSQL", percentage: 85 },
+  { id: 3, title: "AWS", percentage: 95 },
+  { id: 4, title: "Serverless", percentage: 85 },
 ];
 
 export const INFO =

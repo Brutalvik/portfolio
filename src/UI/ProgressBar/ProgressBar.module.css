@@ -32,8 +32,8 @@
 
 .innerprogress {
   background-color: var(--dark-text);
-  height: 1vh;
-  margin: 0px 5px 0px 5px;
+  height: 1.25vh;
+  margin: 0px 2px 0px 2px;
   border-radius: 20px;
   animation-name: slide-in;
   animation-duration: 1s;
