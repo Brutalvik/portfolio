@@ -7,7 +7,15 @@ export const sequenceData = [
   1000,
 ];
 
-export const aboutMeDescription = `Full Stack Developer with over nine years of experience. Highly motivated, result-oriented, team player who uses his experience with the latest technology to contribute to the projects. Through my experience working on several projects, I have gained valuable working experience developing and deploying multiple Angular and React based websites with NodeJS and has developed back-end frameworks using NodeJS and Firebase. I have also used Typescript and RESTful APIs to develop web applications. Between my technical skills, communication skills, and collaboration skills, I could prove to be an asset to any team and a great support for the successful outcome of any project.`;
+export const aboutMeDescription = `Full Stack Developer with over a decade of experience, specializing in building dynamic, scalable web applications using
+Angular, React, Node.js. Expertise in backend development with Express, NestJS, Prisma, and experience working
+with both SQL (MySQL, PostgreSQL) and NoSQL (MongoDB, Cosmos DB) databases. Highly skilled in cloud services,
+with hands-on experience using AWS (Lambda, API Gateway, S3, DynamoDB) and Azure (Azure Functions, Blob
+Storage), leveraging serverless architectures, microservices, and infrastructure-as-code (IaC) with tools like AWS
+CloudFormation and Azure DevOps. Expert in integrating APIs, optimizing performance, and automating CI/CD
+pipelines using AWS CodePipeline and Azure DevOps. Adept at working within Agile methodologies to ensure timely
+delivery of high-quality solutions. Strong communicator and collaborative team player, bridging the gap between
+technical and business objectives, ensuring successful project outcomes and client satisfaction.`;
 
 export const skills = [
   { type: "Java", level: 85 },

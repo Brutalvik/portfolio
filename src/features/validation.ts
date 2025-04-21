@@ -3,11 +3,8 @@ import * as yup from "yup";
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
 export const registrationFormSchema = yup.object().shape({
-  firstName: yup
-    .string()
-    .min(3, "Miniumum 3 characters")
-    .required("Required !"),
-  lastName: yup.string().min(3, "Miniumum 3 characters").required("Required !"),
+  firstName: yup.string().min(3, "Min 3 characters").required("Required !"),
+  lastName: yup.string().min(3, "Min 3 characters").required("Required !"),
   email: yup
     .string()
     .email("Please enter a valid email !")
